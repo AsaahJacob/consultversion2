@@ -9,20 +9,29 @@
 </head>
 
 <body class="bg-[#f3f7f8] text-gray-800">
-  <nav class="flex items-center justify-between px-8 py-6 bg-white shadow-sm">
-   <a href="index.html">
-  <div class="text-2xl font-bold text-teal-700">RR</div>
-</a>
-    <div class="space-x-6 text-lg font-medium text-gray-700">
-      <a href="index.html" class="hover:text-teal-600">Home</a>
-      <a href="services.html" class="hover:text-teal-600">Services</a>
-      <a href="booking.html" class="hover:text-teal-600">Booking</a>
-      <a href="about.html" class="hover:text-teal-600">About</a>
-      <a href="locations.html" class="hover:text-teal-600">Locations</a>
-      <a href="testimonials.html" class="hover:text-teal-600">Testimonials</a>
-      <a href="contact.html" class="hover:text-teal-600">Get in Touch</a>
-    </div>
-  </nav>
+  <nav class="bg-white shadow-sm px-6 py-4">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="text-2xl font-bold text-teal-700">RR</a>
+    <!-- Hamburger button (visible on mobile only) -->
+    <button class="block md:hidden" onclick="document.getElementById('menu').classList.toggle('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <div id="menu" class="mt-4 md:mt-0 md:flex md:justify-end md:space-x-6 text-lg font-medium text-gray-700 hidden md:block">
+    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
+    <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
+    <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
+    <a href="about.html" class="block py-1 hover:text-teal-600">About</a>
+    <a href="locations.html" class="block py-1 hover:text-teal-600">Locations</a>
+    <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
+    <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
+  </div>
+</nav>
+
 
   <section class="px-8 md:px-20 py-16 max-w-4xl mx-auto">
     <h1 class="text-3xl font-semibold mb-4">Locations</h1>
