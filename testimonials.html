@@ -12,23 +12,24 @@
   <nav class="bg-white shadow-sm px-6 py-4">
   <div class="flex items-center justify-between">
     <a href="index.html" class="text-2xl font-bold text-teal-700">RR</a>
-    <!-- Hamburger button (visible on mobile only) -->
-    <button class="block md:hidden" onclick="document.getElementById('menu').classList.toggle('hidden')">
+    
+    <!-- Hamburger Button -->
+    <button id="menu-button" class="md:hidden focus:outline-none">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
   </div>
 
-  <!-- Nav links -->
-  <div id="menu" class="mt-4 md:mt-0 md:flex md:justify-end md:space-x-6 text-lg font-medium text-gray-700 hidden md:block">
-    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
-    <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
-    <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
-    <a href="about.html" class="block py-1 hover:text-teal-600">About</a>
-    <a href="locations.html" class="block py-1 hover:text-teal-600">Locations</a>
-    <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
-    <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
+  <!-- Nav Links -->
+  <div id="menu" class="hidden flex-col mt-4 space-y-2 text-lg font-medium text-gray-700 md:flex md:flex-row md:justify-end md:space-x-6 md:space-y-0 md:mt-0">
+    <a href="index.html" class="block hover:text-teal-600">Home</a>
+    <a href="services.html" class="block hover:text-teal-600">Services</a>
+    <a href="booking.html" class="block hover:text-teal-600">Booking</a>
+    <a href="about.html" class="block hover:text-teal-600">About</a>
+    <a href="locations.html" class="block hover:text-teal-600">Locations</a>
+    <a href="testimonials.html" class="block hover:text-teal-600">Testimonials</a>
+    <a href="contact.html" class="block hover:text-teal-600">Get in Touch</a>
   </div>
 </nav>
 
@@ -50,9 +51,17 @@
   </section>
 
   <script src="active-link.js"></script>
+
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init();
+</script>
+
+<script>
+  document.getElementById('menu-button').addEventListener('click', () => {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('hidden');
+  });
 </script>
 
 <footer style="text-align:center; font-size:14px; color:#777; padding:20px;">
