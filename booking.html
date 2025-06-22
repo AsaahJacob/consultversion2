@@ -1,91 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Book a Session - Collegial Legal Associates</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session – Cogent</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 px-8 md:px-20 py-12">
 
-  <body class="bg-[#f3f7f8] text-gray-800">
-    <nav class="bg-white shadow-sm px-6 py-4">
-      <div class="flex items-center justify-between">
-        <a href="index.html" class="text-2xl font-bold text-teal-700">Collegial Legal Associates</a>
-        <!-- Hamburger button (visible on mobile only) -->
-        <button class="block md:hidden" onclick="document.getElementById('menu').classList.toggle('hidden')">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
+  <h1 class="text-3xl font-bold mb-8 text-teal-700">Book a Consultation</h1>
 
-      <!-- Nav links -->
-      <div
-        id="menu"
-        class="mt-4 md:mt-0 md:flex md:justify-end md:space-x-6 text-lg font-medium text-gray-700 hidden md:block"
-      >
-        <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
-        <a href="services.html" class="block py-1 hover:text-teal-600"
-          >Services</a
-        >
-        <a href="booking.html" class="block py-1 hover:text-teal-600"
-          >Booking</a
-        >
-        <a href="about.html" class="block py-1 hover:text-teal-600">About</a>
-        <a href="locations.html" class="block py-1 hover:text-teal-600"
-          >Locations</a
-        >
-        <a href="testimonials.html" class="block py-1 hover:text-teal-600"
-          >Testimonials</a
-        >
-        <a href="contact.html" class="block py-1 hover:text-teal-600"
-          >Get in Touch</a
-        >
-      </div>
-    </nav>
+  <!-- Optimal Ed Booking -->
+  <section class="bg-white p-6 rounded-lg shadow mb-10">
+    <h2 class="text-xl font-semibold text-teal-800 mb-2">Optimal Ed</h2>
+    <p class="mb-4 text-sm text-gray-700">Tutoring and education services tailored to individual student success.</p>
+    <a href="https://your-tidycal-link-for-optimal-ed" target="_blank" class="bg-teal-700 text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-teal-800 transition">
+      Book Optimal Ed Session
+    </a>
+  </section>
 
-    <section class="px-8 md:px-20 py-16 max-w-5xl mx-auto">
-      <h1 class="text-3xl font-semibold mb-6">Book a Session</h1>
-      <p class="mb-4 text-gray-700">
-        Use the calendar below to choose a time that works best for you. All
-        sessions are held virtually unless otherwise discussed.
-      </p>
+  <!-- Second Opinion Booking -->
+  <section class="bg-white p-6 rounded-lg shadow mb-10">
+    <h2 class="text-xl font-semibold text-teal-800 mb-2">Second Opinion</h2>
+    <p class="mb-4 text-sm text-gray-700">Legal advisory on U.S. tax law and international compliance.</p>
+    <a href="https://your-tidycal-link-for-second-opinion" target="_blank" class="bg-teal-700 text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-teal-800 transition">
+      Book Legal Session
+    </a>
+  </section>
 
-      <!-- Embed your booking platform here -->
-      <div class="w-full h-[800px] bg-white rounded shadow overflow-hidden">
-        <iframe
-          src="https://tidycal.com/reidrasheena/educational-consultation-tutoring"
-          class="w-full h-full border-0"
-          allowfullscreen
-          loading="lazy"
-        >
-        </iframe>
-      </div>
-    </section>
+  <!-- Cogent AID Booking -->
+  <section class="bg-white p-6 rounded-lg shadow">
+    <h2 class="text-xl font-semibold text-teal-800 mb-2">Cogent AID</h2>
+    <p class="mb-4 text-sm text-gray-700">Consulting on NGO strategy, non-profit development, and international aid.</p>
+    <a href="https://your-tidycal-link-for-cogent-aid" target="_blank" class="bg-teal-700 text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-teal-800 transition">
+      Book Strategy Session
+    </a>
+  </section>
 
-    <script src="active-link.js"></script>
-
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-
-    <footer style="text-align: center; font-size: 14px; color: #777; padding: 20px">
-      &copy; 2025 Collegial Legal Associates. All rights reserved. <br />
-      Some images used are licensed under open-source licenses and belong to
-      their respective creators.
-    </footer>
-
-  </body>
+</body>
 </html>
