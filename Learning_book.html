@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session – Cogent</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 px-8 md:px-20 py-12">
+     <!-- Navbar -->
+ <nav class="bg-white shadow-sm px-6 py-4">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="text-3xl font-bold text-teal-700 break-words sm:whitespace-nowrap sm:truncate">
+  Congent Learning
+</a>
+    <!-- Hamburger button (visible on mobile only) -->
+    <button class="block md:hidden" onclick="document.getElementById('menu').classList.toggle('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <div id="menu" class="mt-4 md:mt-0 md:flex md:justify-end md:space-x-6 text-lg font-medium text-gray-700 hidden md:block">
+    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
+    <a href="about.html" class="block py-1 hover:text-teal-600">About</a>
+    <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
+    <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
+    <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
+    <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
+  </div>
+</nav>
+
+  <!-- Congent Learning -->
+  <section class="px-8 md:px-20 py-16 max-w-5xl mx-auto">
+    <h1 class="text-3xl font-semibold mb-6">Book a Session</h1>
+    <p class="mb-4 text-gray-700">Use the calendar below to choose a time that works best for you. All sessions are held virtually unless otherwise discussed.</p>
+    
+    <!-- Embed your booking platform here -->
+    <div class="w-full h-[800px] bg-white rounded shadow overflow-hidden">
+      <iframe 
+        src="https://tidycal.com/reidrasheena/educational-consultation-tutoring" 
+        class="w-full h-full border-0" 
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+  
+</body>
+</html>

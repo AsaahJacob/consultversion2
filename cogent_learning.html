@@ -1,0 +1,65 @@
+<!-- Example: Optimal Ed Page (services-optimal-ed.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cogent Learning</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+   <!-- Navbar -->
+ <nav class="bg-white shadow-sm px-6 py-4">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="text-3xl font-bold text-teal-700 break-words sm:whitespace-nowrap sm:truncate">
+  Cogent
+</a>
+    <!-- Hamburger button (visible on mobile only) -->
+    <button class="block md:hidden" onclick="document.getElementById('menu').classList.toggle('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <div id="menu" class="mt-4 md:mt-0 md:flex md:justify-end md:space-x-6 text-lg font-medium text-gray-700 hidden md:block">
+    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
+    <a href="about.html" class="block py-1 hover:text-teal-600">About</a>
+    <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
+    <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
+    <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
+    <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
+  </div>
+</nav>
+
+  <section class="px-8 md:px-20 py-12">
+    <h1 class="text-3xl font-bold text-teal-800 mb-6">Cogent Learning Services</h1>
+    <p class="mb-4 text-gray-700">We provide tailored tutoring and educational support across the following services:</p>
+
+    <ul class="list-disc list-inside mb-6 text-gray-700">
+      <li>Math and Science Tutoring (K–12)</li>
+      <li>Standardized Test Preparation (SAT, ACT, GRE)</li>
+      <li>College Application Guidance</li>
+      <li>Homework Help and Study Skills Coaching</li>
+      <li>Adult Education and Literacy</li>
+    </ul>
+
+    <a href="Learning_book.html" class="bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book a Session</a>
+   
+    <!-- Quick Navigation Buttons -->
+    <div class="mt-10 flex flex-col sm:flex-row gap-4">
+      <a href="congent_legal.html" class="bg-white border border-teal-700 text-teal-700 px-6 py-2 rounded-md text-center hover:bg-teal-50 transition w-full sm:w-auto">Cogent Legal</a>
+      <a href="cogent_consulting.html" class="bg-white border border-teal-700 text-teal-700 px-6 py-2 rounded-md text-center hover:bg-teal-50 transition w-full sm:w-auto">Cogent Consulting</a>
+      <a href="economic_policy.html" class="bg-white border border-teal-700 text-teal-700 px-6 py-2 rounded-md text-center hover:bg-teal-50 transition w-full sm:w-auto">Economic Policy and Data Analysis</a>
+    </div>
+
+  </section>
+  <script src="active-link.js"></script>
+
+   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
+</body>
+</html>
