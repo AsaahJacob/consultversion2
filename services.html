@@ -15,8 +15,8 @@
   <div class="flex items-center justify-between">
     <a href="index.html" class="text-2xl font-bold text-teal-700">Cogent</a>
     <!-- Hamburger button (visible on mobile only) -->
-    <button class="block md:hidden" onclick="document.getElementById('menu').classList.toggle('hidden')">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <button class="block md:hidden" aria-label="Toggle navigation menu" onclick="document.getElementById('menu').classList.toggle('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
@@ -98,6 +98,15 @@
   Some images used are licensed under open-source licenses and belong to their respective creators.
 </footer>
 
+ <script>
+  function toggleSubmenu() {
+    // Only trigger JS toggle on screens smaller than 768px (mobile)
+    if (window.innerWidth < 768) {
+      const submenu = document.getElementById('about-submenu');
+      submenu.classList.toggle('hidden');
+    }
+  }
+</script>
 
 </body>
 

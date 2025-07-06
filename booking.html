@@ -6,25 +6,109 @@
   <title>Book a Session-Cogent</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 px-8 md:px-20 py-12">
+<body class="bg-[#f3f7f8] text-gray-800">
 
-  <h1 class="text-3xl font-bold mb-8 text-teal-700">Book a Consultation</h1>
+  <nav class="bg-white shadow-sm px-6 py-4 sticky top-0 z-50">
+  <div class="flex items-center justify-between max-w-7xl mx-auto">
+    <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
+    <button
+      class="md:hidden"
+      onclick="document.getElementById('menu').classList.toggle('hidden')"
+      aria-label="Open navigation menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
 
-  <!-- consult booking -->
-  <section class="px-8 md:px-20 py-16 max-w-5xl mx-auto">
-    <h1 class="text-3xl font-semibold mb-6">Book a Session</h1>
-    <p class="mb-4 text-gray-700">Use the calendar below to choose a time that works best for you. All sessions are held virtually unless otherwise discussed.</p>
-    
-    <!-- Embed your booking platform here -->
-    <div class="w-full h-[800px] bg-white rounded shadow overflow-hidden">
-      <iframe 
-        src="https://your-booking-link.com" 
-        class="w-full h-full border-0" 
-        allowfullscreen
-        loading="lazy">
-      </iframe>
+  <!-- Nav links -->
+  <div
+    id="menu"
+    class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
+  >
+    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
+
+    <!-- ABOUT w/ DROPDOWN -->
+    <div class="relative group">
+      <button
+        onclick="toggleSubmenu()"
+        class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
+      >
+        About
+        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <!-- Submenu -->
+      <div
+  id="about-submenu"
+  class="md:invisible md:opacity-0 md:translate-y-1 md:group-hover:visible md:group-hover:opacity-100 md:group-hover:translate-y-0 md:transition-all md:duration-300 md:ease-out
+         hidden md:block absolute bg-white shadow-md rounded-md md:mt-2 w-48 z-50"
+>
+  <a href="about.html" class="block px-4 py-2 hover:bg-teal-50">About Cogent</a>
+  <a href="staff.html" class="block px-4 py-2 hover:bg-teal-50">Meet Our Staff</a>
+  <a href="mission.html" class="block px-4 py-2 hover:bg-teal-50">Mission & Vision</a>
+  <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50">Careers</a>
+</div>
     </div>
-  </section>
+
+    <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
+    <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
+    <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
+    <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
+  </div>
+</nav>
+
+  <!-- Booking Section -->
+<section class="px-8 md:px-20 py-16 max-w-5xl mx-auto">
+  <h1 class="text-3xl font-semibold text-teal-700 mb-6">Book a Session</h1>
+  <p class="mb-6 text-gray-700">Select the appropriate service below to book a session with one of our specialists. All sessions are virtual unless otherwise arranged.</p>
+
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <!-- Cogent Legal -->
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-bold text-teal-800 mb-2">Cogent Legal</h2>
+      <p class="text-gray-700 mb-4">U.S. tax, immigration, and compliance consultations for individuals and organizations.</p>
+      <a href="legal_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book Legal Session</a>
+    </div>
+
+    <!-- Cogent Learning -->
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-bold text-teal-800 mb-2">Cogent Learning</h2>
+      <p class="text-gray-700 mb-4">Schedule a personalized tutoring or multilingual education strategy session.</p>
+      <a href="Learning_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book Learning Session</a>
+    </div>
+
+    <!-- Cogent Consulting -->
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-bold text-teal-800 mb-2">Cogent Consulting</h2>
+      <p class="text-gray-700 mb-4">NGO and nonprofit development consulting, strategic planning, and grant support.</p>
+      <a href="consult_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book Consulting Session</a>
+    </div>
+
+    <!-- Economic Policy and Data Analysis -->
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-bold text-teal-800 mb-2">Economic Policy and Data Analysis</h2>
+      <p class="text-gray-700 mb-4">Expert briefings, policy writing, and research support for government or institutional clients.</p>
+      <a href="eco_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book Economic Policy and Data Analysis</a>
+    </div>
+
+  </div>
+</section>
+
+
+   <script>
+  function toggleSubmenu() {
+    // Only trigger JS toggle on screens smaller than 768px (mobile)
+    if (window.innerWidth < 768) {
+      const submenu = document.getElementById('about-submenu');
+      submenu.classList.toggle('hidden');
+    }
+  }
+</script>
   
 </body>
 </html>

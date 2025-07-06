@@ -1,133 +1,119 @@
-<!--Cogent Consulting -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cogent Consulting</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session - Cogent</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
-   <!-- Navbar -->
- <nav class="bg-white shadow-sm px-6 py-4">
-  <div class="flex items-center justify-between">
-    <a href="index.html" class="text-3xl font-bold text-teal-700 break-words sm:whitespace-nowrap sm:truncate">
-  Cogent
-</a>
-    <!-- Hamburger button (visible on mobile only) -->
-    <button class="block md:hidden" onclick="document.getElementById('menu').classList.toggle('hidden')">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
+<body class="bg-gray-50 text-gray-800 px-8 md:px-20 py-12">
 
-  <!-- Nav links -->
-  <div id="menu" class="mt-4 md:mt-0 md:flex md:justify-end md:space-x-6 text-lg font-medium text-gray-700 hidden md:block">
-    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
-    <a href="about.html" class="block py-1 hover:text-teal-600">About</a>
-    <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
-    <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
-    <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
-    <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
-  </div>
-</nav>
-
-  
-<!-- Services Section -->
-<section class="px-8 md:px-20 py-16 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-
-  <!-- Card 1: Consultancy Services -->
-  <div class="bg-white p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="800">
-    <div class="text-teal-700 mb-4">
-      <!-- Briefcase Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m2 0a2 2 0 012 2v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4a2 2 0 012-2m4-4V6a2 2 0 012-2h2a2 2 0 012 2v2" />
-      </svg>
-    </div>
-    <h3 class="font-semibold text-lg mb-2">Consultancy Services</h3>
-    <p class="text-sm text-gray-600">Expert advice in tax law, foreign policy, development strategy, and immigration compliance for global organizations.</p>
-  </div>
-
-  <!-- Card 2: Legal Services -->
-  <div class="bg-white p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="800">
-    <div class="text-teal-700 mb-4">
-      <!-- Scale Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m0 0h9M3 21h9m0-18C9 6 5 9 5 12s4 6 7 6 7-3 7-6-4-6-7-6z" />
-      </svg>
-    </div>
-    <h3 class="font-semibold text-lg mb-2">Legal Services</h3>
-    <p class="text-sm text-gray-600">Specialized counsel in U.S. tax law and immigration processes for expatriates and global professionals.</p>
-  </div>
-
-  <!-- Card 3: Teaching & Tutoring -->
-  <div class="bg-white p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="800">
-    <div class="text-teal-700 mb-4">
-      <!-- Book Open Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4a8 8 0 00-8 8v4a8 8 0 008 8m0-16a8 8 0 018 8v4a8 8 0 01-8 8" />
-      </svg>
-    </div>
-    <h3 class="font-semibold text-lg mb-2">Teaching & Tutoring</h3>
-    <p class="text-sm text-gray-600">Instruction in Spanish, Portuguese, and mathematics with custom curriculum development.</p>
-  </div>
-
-  <!-- Card 4: Multilingual Program Development -->
-  <div class="bg-white p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="800">
-    <div class="text-teal-700 mb-4">
-      <!-- Globe Alt Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m0 0a8 8 0 000-16m0 0a8 8 0 010 16" />
-      </svg>
-    </div>
-    <h3 class="font-semibold text-lg mb-2">Multilingual Program Development</h3>
-    <p class="text-sm text-gray-600">Educational programs in Spanish and Portuguese tailored to professionals in diplomacy and development.</p>
-  </div>
-
-  <!-- Card 5: Mentoring & Coaching -->
-  <div class="bg-white p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="800">
-    <div class="text-teal-700 mb-4">
-      <!-- Academic Cap Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0-6l-9-5m9 5l9-5" />
-      </svg>
-    </div>
-    <h3 class="font-semibold text-lg mb-2">Mentoring & Coaching</h3>
-    <p class="text-sm text-gray-600">Career and academic mentoring for students and professionals in law, diplomacy, and language learning.</p>
-  </div>
-
-  <!-- Card 6: Cross-Disciplinary Training -->
-  <div class="bg-white p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="800">
-    <div class="text-teal-700 mb-4">
-      <!-- Puzzle Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13a3 3 0 01-3 3h-1v2a3 3 0 01-6 0v-2H7a3 3 0 01-3-3v-2h2a3 3 0 000-6H4V5a3 3 0 013-3h2a3 3 0 006 0h2a3 3 0 013 3v2h-2a3 3 0 000 6h2v2z" />
-      </svg>
-    </div>
-    <h3 class="font-semibold text-lg mb-2">Cross-Disciplinary Training</h3>
-    <p class="text-sm text-gray-600">Workshops integrating legal, diplomatic, language, and immigration skills for global professionals.</p>
-  </div>
-
-   <a href="consult_book.html" class="bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book a Consultation</a>
-</section>
-    <a href="consult_book.html" class="bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book a Consultation</a>
-
-
-      
-    <!-- Quick Navigation Buttons -->
-    <div class="mt-10 flex flex-col sm:flex-row gap-4">
-      <a href="cogent_learning.html" class="bg-white border border-teal-700 text-teal-700 px-6 py-2 rounded-md text-center hover:bg-teal-50 transition w-full sm:w-auto">Cogent Learning</a>
-      <a href="cogent_legal.html" class="bg-white border border-teal-700 text-teal-700 px-6 py-2 rounded-md text-center hover:bg-teal-50 transition w-full sm:w-auto">Cogent Legal</a>
-      <a href="economic_policy.html" class="bg-white border border-teal-700 text-teal-700 px-6 py-2 rounded-md text-center hover:bg-teal-50 transition w-full sm:w-auto">Economic Policy and Data Analysis</a>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm px-6 py-4 sticky top-0 z-50">
+    <div class="flex items-center justify-between max-w-7xl mx-auto">
+      <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
+      <button
+        class="md:hidden"
+        onclick="document.getElementById('menu').classList.toggle('hidden')"
+        aria-label="Open navigation menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
 
+    <!-- Nav links -->
+    <div
+      id="menu"
+      class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
+    >
+      <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
+      <div class="relative group">
+        <button
+          onclick="toggleSubmenu()"
+          class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
+        >
+          About
+          <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <!-- Submenu -->
+        <div
+          id="about-submenu"
+          class="md:invisible md:opacity-0 md:translate-y-1 md:group-hover:visible md:group-hover:opacity-100 md:group-hover:translate-y-0 md:transition-all md:duration-300 md:ease-out
+                 hidden md:block absolute bg-white shadow-md rounded-md md:mt-2 w-48 z-50"
+        >
+          <a href="about.html" class="block px-4 py-2 hover:bg-teal-50">About Cogent</a>
+          <a href="staff.html" class="block px-4 py-2 hover:bg-teal-50">Meet Our Staff</a>
+          <a href="mission.html" class="block px-4 py-2 hover:bg-teal-50">Mission & Vision</a>
+          <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50">Careers</a>
+        </div>
+      </div>
+      <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
+      <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
+      <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
+      <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- Booking Section -->
+  <section class="px-8 md:px-20 py-16 max-w-5xl mx-auto">
+    <h1 class="text-3xl font-semibold mb-6 text-teal-700">Book a Session</h1>
+    <p class="mb-4 text-gray-700">
+      Use the form below to proceed. All sessions are held virtually unless otherwise discussed.
+    </p>
+
+    <!-- Agreement Box -->
+    <div class="max-w-xl mx-auto bg-white p-6 mt-8 rounded shadow text-center">
+      <h2 class="text-2xl font-semibold text-teal-700 mb-4">Ready to Book?</h2>
+      <p class="text-gray-700 mb-4">
+        Please review and agree to our
+        <a href="terms.html" target="_blank" class="text-teal-600 underline hover:text-teal-800">Terms of Engagement</a>
+        and
+        <a href="privacy.html" target="_blank" class="text-teal-600 underline hover:text-teal-800">Privacy Policy</a>
+        before continuing.
+      </p>
+
+      <label class="inline-flex items-start mb-4">
+        <input type="checkbox" id="agree" class="mr-2 mt-1">
+        <span class="text-gray-800">I have read and agree to the terms and privacy policy.</span>
+      </label>
+
+      <div class="mt-6">
+        <button 
+          onclick="goToBooking()"
+          class="bg-teal-600 text-white px-6 py-2 rounded hover:bg-teal-700 transition"
+        >
+          Proceed to Booking
+        </button>
+      </div>
+    </div>
   </section>
-  <script src="active-link.js"></script>
 
-   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-    AOS.init();
-    </script>
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-600 mt-16">
+    &copy; 2025 Cogent. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function toggleSubmenu() {
+      if (window.innerWidth < 768) {
+        const submenu = document.getElementById('about-submenu');
+        submenu.classList.toggle('hidden');
+      }
+    }
+
+    function goToBooking() {
+      const agreed = document.getElementById("agree").checked;
+      if (agreed) {
+        window.location.href = "https://tidycal.com/your-booking-link"; // <-- replace with your TidyCal link
+      } else {
+        alert("Please agree to the terms before proceeding.");
+      }
+    }
+  </script>
 </body>
 </html>

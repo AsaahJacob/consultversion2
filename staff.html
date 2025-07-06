@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Our Staff - Cogent</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body class="bg-[#f3f7f8] text-gray-800">
+
+  <nav class="bg-white shadow-sm px-6 py-4 sticky top-0 z-50">
+  <div class="flex items-center justify-between max-w-7xl mx-auto">
+    <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
+    <button
+      class="md:hidden"
+      onclick="document.getElementById('menu').classList.toggle('hidden')"
+      aria-label="Toggle navigation menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <div
+    id="menu"
+    class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
+  >
+    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
+
+    <!-- ABOUT w/ DROPDOWN -->
+    <div class="relative group">
+      <button
+        onclick="toggleSubmenu()"
+        class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
+      >
+        About
+        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <!-- Submenu -->
+      <div
+  id="about-submenu"
+  class="md:invisible md:opacity-0 md:translate-y-1 md:group-hover:visible md:group-hover:opacity-100 md:group-hover:translate-y-0 md:transition-all md:duration-300 md:ease-out
+         hidden md:block absolute bg-white shadow-md rounded-md md:mt-2 w-48 z-50"
+>
+  <a href="about.html" class="block px-4 py-2 hover:bg-teal-50">About Cogent</a>
+  <a href="staff.html" class="block px-4 py-2 hover:bg-teal-50">Meet Our Staff</a>
+  <a href="mission.html" class="block px-4 py-2 hover:bg-teal-50">Mission & Vision</a>
+  <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50">Careers</a>
+</div>
+    </div>
+
+    <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
+    <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
+    <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
+    <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
+  </div>
+</nav>
+  <!-- Staff Section -->
+  <section class="px-8 md:px-20 py-16 max-w-6xl mx-auto">
+    <h1 class="text-3xl font-semibold mb-2">Meet Our Staff</h1>
+    <p class="text-gray-600 text-lg mb-8">Our team of professionals brings experience, dedication, and passion to our work.</p>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+ 
+        <!-- Staff Card -->
+<div onclick="openModal('bio1')" class="bg-white rounded-lg shadow-md p-6 text-center cursor-pointer hover:shadow-lg transition" data-aos="fade-up">
+  <img src="assets/images/staff1.jpg" alt="Rasheena Reid" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
+  <h3 class="text-xl font-semibold text-teal-700">Rasheena Reid</h3>
+  <p class="text-sm text-gray-500">Founder & Lead Consultant</p>
+</div>
+
+<!-- Full Bio Modal -->
+<div id="bio1" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg max-w-3xl w-full p-8 relative overflow-y-auto max-h-[90vh]">
+    <button onclick="closeModal('bio1')" class="absolute top-4 right-4 text-gray-600 hover:text-red-500 text-2xl">&times;</button>
+    
+    <div class="flex flex-col md:flex-row gap-6 items-start">
+      <img src="assets/images/staff1.jpg" alt="Rasheena Reid" class="w-40 h-40 rounded-full object-cover mx-auto md:mx-0" />
+      <div>
+        <h2 class="text-2xl font-bold text-teal-700 mb-1">Ms. Rasheena Reid, Esq.</h2>
+        <p class="text-sm text-gray-500 mb-4">Founder & Lead Consultant</p>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        Ms. Rasheena Reid is a uniquely qualified professional whose career spans
+        law, diplomacy, education, and international development. A tax attorney
+        by training, a former U.S. diplomat, and an experienced educator,
+        Rasheena brings a multidisciplinary and global perspective to her
+        consultancy services.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        Over the course of a distinguished 15-year diplomatic career, Rasheena
+        served in U.S. Embassies around the world, where she advised senior U.S.
+        and foreign government officials on complex foreign policy matters and
+        spearheaded development initiatives aimed at fostering sustainable
+        growth in emerging countries. Her work with the U.S. Agency for
+        International Development (USAID) took her to Peru, Afghanistan, the
+        Dominican Republic, Liberia, and Ghana—where she designed and managed
+        programs in economic development, education, governance, and
+        humanitarian aid.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        Rasheena’s academic credentials are equally impressive. She holds a
+        Bachelor of Arts from Yale University, a Juris Doctor and Master’s in
+        Education from the University of Pennsylvania, and an LL.M. in Taxation
+        from Georgetown Law. This robust educational foundation equips her with
+        a deep understanding of U.S. and international tax law, educational
+        policy, and legal frameworks affecting global development.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        In addition to her legal and diplomatic accomplishments, Rasheena is a
+        dedicated educator. She began her career as a Teach For America corps
+        member, teaching high school Spanish, and has continued to share her
+        knowledge of Spanish, Portuguese, and mathematics in both classroom and
+        tutoring settings. Fluent in both Spanish and Portuguese, she has taught
+        and worked extensively in Brazil, combining her linguistic skills with
+        legal and educational expertise.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        Rasheena Reid’s rare blend of legal acumen, diplomatic experience, and
+        teaching excellence makes her an exceptional consultant in tax law,
+        international development, humanitarian work, and multilingual
+        education.
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Staff Card 2 -->
+<div onclick="openModal('bio2')" class="bg-white rounded-lg shadow-md p-6 text-center cursor-pointer hover:shadow-lg transition" data-aos="fade-up">
+  <img src="assets/images/staff2.jpg" alt="Dr. Easton Alanzo Reid" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
+  <h3 class="text-xl font-semibold text-teal-700">Dr. Easton Alanzo Reid</h3>
+  <p class="text-sm text-gray-500">Economic Policy and Data Analysis Consultant</p>
+</div>
+
+<!-- Full Bio Modal -->
+<div id="bio2" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg max-w-3xl w-full p-8 relative overflow-y-auto max-h-[90vh]">
+    <button onclick="closeModal('bio2')" class="absolute top-4 right-4 text-gray-600 hover:text-red-500 text-2xl">&times;</button>
+    
+    <div class="flex flex-col md:flex-row gap-6 items-start">
+      <img src="assets/images/staff2.jpg" alt="Dr. Easton Alanzo Reid" class="w-40 h-40 rounded-full object-cover mx-auto md:mx-0" />
+      <div>
+        <h2 class="text-2xl font-bold text-teal-700 mb-1">Dr. Easton Alanzo Reid</h2>
+        <p class="text-sm text-gray-500 mb-4">Economic Policy and Data Analysis Consultant</p>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        Dr. Easton A. Reid is a seasoned consultant in economic policy and data analysis, 
+        with over 15 years of experience advising senior leaders across government, academia, 
+        and the private sector. A former U.S. diplomat and senior technical advisor, 
+        Dr. Reid has advanced U.S. economic interests and supported complex multinational initiatives across Africa, 
+        Latin America, Asia, and Europe.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        He has led economic and strategic policy engagements on issues ranging 
+        from sovereign debt restructuring and trade facilitation to aviation, 
+        space cooperation, and health sector financing.  At the U.S. Embassy in Ghana, 
+        he advised the U.S. Ambassador and Senior U.S. government leaders on macroeconomic 
+        stability and helped drive bilateral efforts around civil aviation, 
+        innovation, and sovereign debt response.  His leadership contributed to Ghana’s 
+        participation in the Artemis Accords and fostered cross-sector partnerships that promoted investment and trade.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        In Liberia, Dr. Reid worked with USAID to develop and carry out multi-million-dollar national 
+        health financing plans and advise on health system improvements. He also consulted for a healthcare 
+        and logistics company operating across West Africa, where he led U.S. military research projects on 
+        infectious diseases and managed business strategy and compliance.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        In the Dominican Republic, Dr. Reid served as an advisor to the U.S. Ambassador and senior leadership at the U.S. Embassy.  
+        He oversaw HR operations for 800 employees leading recruitment, policy development, and contract management.  
+        He led the launch of employee leadership training and enhanced mission readiness by 
+        streamlining U.S. visa as well as medical and security clearance processes.  
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        A published researcher and academic, Dr. Reid has held faculty positions in East and Southeast Asia, taught public health and 
+        environmental science, and contributed as an author and editor to international peer-reviewed journals. 
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        He holds a B.Sc. in Biochemistry from Oakwood University, a Ph.D. in Physiology from Meharry Medical College, and a Cardiovascular 
+        Physiology postdoctoral fellowship from the Cardiothoracic Surgery Department at the University of Kentucky.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        Dr. Reid is passionate about using data-driven insight and cross-cultural collaboration to address global 
+        challenges at the intersection of economics, policy, and development.
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; font-size: 14px; color: #777; padding: 20px">
+      &copy; 2025 Cogent. All rights reserved. <br />
+      Some images used are licensed under open-source licenses and belong to
+      their respective creators.
+    </footer>
+
+   <script src="active-link.js"></script>
+
+        
+   <script>
+  function toggleSubmenu() {
+    // Only trigger JS toggle on screens smaller than 768px (mobile)
+    if (window.innerWidth < 768) {
+      const submenu = document.getElementById('about-submenu');
+      submenu.classList.toggle('hidden');
+    }
+  }
+</script>
+
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

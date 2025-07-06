@@ -9,13 +9,14 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
    <!-- Navbar -->
- <nav class="bg-white shadow-sm px-6 py-4">
-  <div class="flex items-center justify-between">
-    <a href="index.html" class="text-3xl font-bold text-teal-700 break-words sm:whitespace-nowrap sm:truncate">
-  Cogent
-</a>
-    <!-- Hamburger button (visible on mobile only) -->
-    <button class="block md:hidden" onclick="document.getElementById('menu').classList.toggle('hidden')">
+  <nav class="bg-white shadow-sm px-6 py-4 sticky top-0 z-50">
+  <div class="flex items-center justify-between max-w-7xl mx-auto">
+    <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
+    <button
+      class="md:hidden"
+      onclick="document.getElementById('menu').classList.toggle('hidden')"
+      aria-label="Toggle navigation menu"
+    >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
@@ -23,15 +24,44 @@
   </div>
 
   <!-- Nav links -->
-  <div id="menu" class="mt-4 md:mt-0 md:flex md:justify-end md:space-x-6 text-lg font-medium text-gray-700 hidden md:block">
+  <div
+    id="menu"
+    class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
+  >
     <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
-    <a href="about.html" class="block py-1 hover:text-teal-600">About</a>
+
+    <!-- ABOUT w/ DROPDOWN -->
+    <div class="relative group">
+      <button
+        onclick="toggleSubmenu()"
+        class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
+      >
+        About
+        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <!-- Submenu -->
+      <div
+  id="about-submenu"
+  class="md:invisible md:opacity-0 md:translate-y-1 md:group-hover:visible md:group-hover:opacity-100 md:group-hover:translate-y-0 md:transition-all md:duration-300 md:ease-out
+         hidden md:block absolute bg-white shadow-md rounded-md md:mt-2 w-48 z-50"
+>
+  <a href="about.html" class="block px-4 py-2 hover:bg-teal-50">About Cogent</a>
+  <a href="staff.html" class="block px-4 py-2 hover:bg-teal-50">Meet Our Staff</a>
+  <a href="mission.html" class="block px-4 py-2 hover:bg-teal-50">Mission & Vision</a>
+  <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50">Careers</a>
+</div>
+    </div>
+
     <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
     <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
     <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
     <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
   </div>
 </nav>
+
 
   <section class="px-8 md:px-20 py-12">
     <h1 class="text-3xl font-bold text-teal-800 mb-6">Cogent Learning Services</h1>
@@ -61,5 +91,16 @@
     <script>
     AOS.init();
     </script>
+
+     <script>
+  function toggleSubmenu() {
+    // Only trigger JS toggle on screens smaller than 768px (mobile)
+    if (window.innerWidth < 768) {
+      const submenu = document.getElementById('about-submenu');
+      submenu.classList.toggle('hidden');
+    }
+  }
+</script>
+
 </body>
 </html>

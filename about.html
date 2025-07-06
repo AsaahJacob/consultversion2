@@ -1,110 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - Cogent</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Cogent</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-[#f3f7f8] text-gray-800">
 
-  <body class="bg-[#f3f7f8] text-gray-800">
-    <nav class="bg-white shadow-sm px-6 py-4">
-      <div class="flex items-center justify-between">
-        <a href="index.html" class="text-2xl font-bold text-teal-700">Cogent</a>
-        <!-- Hamburger button (visible on mobile only) -->
-        <button
-          class="block md:hidden"
-          onclick="document.getElementById('menu').classList.toggle('hidden')"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
+  <nav class="bg-white shadow-sm px-6 py-4 sticky top-0 z-50">
+  <div class="flex items-center justify-between max-w-7xl mx-auto">
+    <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
+    <button
+      class="md:hidden"
+      onclick="document.getElementById('menu').classList.toggle('hidden')"
+      title="Open navigation menu"
+      aria-label="Open navigation menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
 
-      <!-- Nav links -->
-      <div
-        id="menu"
-        class="mt-4 md:mt-0 md:flex md:justify-end md:space-x-6 text-lg font-medium text-gray-700 hidden md:block"
+  <!-- Nav links -->
+  <div
+    id="menu"
+    class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
+  >
+    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
+
+    <!-- ABOUT w/ DROPDOWN -->
+    <div class="relative group">
+      <button
+        onclick="toggleSubmenu()"
+        class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
       >
-        <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
-    <a href="about.html" class="block py-1 hover:text-teal-600">About</a>
+        About
+        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <!-- Submenu -->
+      <div
+  id="about-submenu"
+  class="md:invisible md:opacity-0 md:translate-y-1 md:group-hover:visible md:group-hover:opacity-100 md:group-hover:translate-y-0 md:transition-all md:duration-300 md:ease-out
+         hidden md:block absolute bg-white shadow-md rounded-md md:mt-2 w-48 z-50"
+>
+  <a href="about.html" class="block px-4 py-2 hover:bg-teal-50">About Cogent</a>
+  <a href="staff.html" class="block px-4 py-2 hover:bg-teal-50">Meet Our Staff</a>
+  <a href="mission.html" class="block px-4 py-2 hover:bg-teal-50">Mission & Vision</a>
+  <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50">Careers</a>
+</div>
+    </div>
+
     <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
     <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
     <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
     <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
-        >
-      </div>
-    </nav>
+  </div>
+</nav>
 
-    <section class="px-8 md:px-20 py-16 max-w-4xl mx-auto">
-      <h1 class="text-3xl font-semibold mb-4">About Mrs. Rasheena Reid Esq</h1>
-      <p class="text-gray-700 text-lg leading-relaxed mb-4">
-        Mrs. Rasheena Reid is a uniquely qualified professional whose career spans
-        law, diplomacy, education, and international development. A tax attorney
-        by training, a former U.S. diplomat, and an experienced educator,
-        Rasheena brings a multidisciplinary and global perspective to her
-        consultancy services.
-      </p>
-      <p class="text-gray-700 text-lg leading-relaxed mb-4">
-        Over the course of a distinguished 15-year diplomatic career, Rasheena
-        served in U.S. Embassies around the world, where she advised senior U.S.
-        and foreign government officials on complex foreign policy matters and
-        spearheaded development initiatives aimed at fostering sustainable
-        growth in emerging countries. Her work with the U.S. Agency for
-        International Development (USAID) took her to Peru, Afghanistan, the
-        Dominican Republic, Liberia, and Ghana—where she designed and managed
-        programs in economic development, education, governance, and
-        humanitarian aid.
-      </p>
-      <p class="text-gray-700 text-lg leading-relaxed mb-4">
-        Rasheena’s academic credentials are equally impressive. She holds a
-        Bachelor of Arts from Yale University, a Juris Doctor and Master’s in
-        Education from the University of Pennsylvania, and an LL.M. in Taxation
-        from Georgetown Law. This robust educational foundation equips her with
-        a deep understanding of U.S. and international tax law, educational
-        policy, and legal frameworks affecting global development.
-      </p>
-      <p class="text-gray-700 text-lg leading-relaxed mb-4">
-        In addition to her legal and diplomatic accomplishments, Rasheena is a
-        dedicated educator. She began her career as a Teach For America corps
-        member, teaching high school Spanish, and has continued to share her
-        knowledge of Spanish, Portuguese, and mathematics in both classroom and
-        tutoring settings. Fluent in both Spanish and Portuguese, she has taught
-        and worked extensively in Brazil, combining her linguistic skills with
-        legal and educational expertise.
-      </p>
-      <p class="text-gray-700 text-lg leading-relaxed mb-4">
-        Rasheena Reid’s rare blend of legal acumen, diplomatic experience, and
-        teaching excellence makes her an exceptional consultant in tax law,
-        international development, humanitarian work, and multilingual
-        education.
-      </p>
-    </section>
+  <!-- Header -->
+  <header class="text-center mb-12" data-aos="fade-down">
+    <h1 class="text-4xl font-bold text-teal-700 mb-4">About Cogent</h1>
+    <section class="bg-teal-50 text-center py-4 px-4" data-aos="fade-up">
+  <p class="text-lg text-teal-900 italic font-medium">
+    “Clear, logical, and convincing legal and educational services”
+  </p>
+</section>
+  </header>
 
-    <script src="active-link.js"></script>
+  <!-- Who We Are -->
+  <section class="mb-12 px-6 md:px-20 max-w-5xl mx-auto" data-aos="fade-up">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Who We Are</h2>
+    <p class="text-gray-700 leading-relaxed">
+      Cogent is a multidisciplinary service provider committed to delivering strategic, insightful, and culturally responsive legal and educational solutions. We specialize in U.S. tax law, immigration services, international development, and multilingual education. Our clients include individuals, NGOs, educational institutions, and governments who seek clarity, impact, and excellence.
+    </p>
+  </section>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
+  <!-- Mission -->
+  <section class="mb-12 px-6 md:px-20 max-w-5xl mx-auto bg-white p-6 rounded-lg shadow" data-aos="fade-up">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h2>
+    <p class="text-gray-700 leading-relaxed">
+      Our mission is to empower communities and institutions through clear guidance, practical education, and legally sound strategies that make a measurable difference.
+    </p>
+  </section>
 
-    <footer style="text-align: center; font-size: 14px; color: #777; padding: 20px">
-      &copy; 2025 Collegial Legal Associates. All rights reserved. <br />
-      Some images used are licensed under open-source licenses and belong to
-      their respective creators.
-    </footer>
-    
-  </body>
+  <!-- What We Do -->
+  <section class="mb-12 px-6 md:px-20 max-w-5xl mx-auto" data-aos="fade-up">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6">What We Do</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="cogent_legal.html" class="block bg-teal-50 p-6 rounded-lg shadow hover:bg-teal-100 transition">
+        <h3 class="text-lg font-semibold text-teal-800">Cogent Legal</h3>
+        <p class="text-gray-700 mt-2">Specialized legal guidance in U.S. tax, immigration law, and international compliance.</p>
+      </a>
+
+      <a href="cogent_learning.html" class="block bg-teal-50 p-6 rounded-lg shadow hover:bg-teal-100 transition">
+        <h3 class="text-lg font-semibold text-teal-800">Cogent Learning</h3>
+        <p class="text-gray-700 mt-2">Personalized tutoring and multilingual education strategies for diverse learners.</p>
+      </a>
+
+      <a href="cogent_consulting.html" class="block bg-teal-50 p-6 rounded-lg shadow hover:bg-teal-100 transition">
+        <h3 class="text-lg font-semibold text-teal-800">Cogent Consulting</h3>
+        <p class="text-gray-700 mt-2">Consulting for NGOs and nonprofits focused on impact, strategy, and grant writing.</p>
+      </a>
+
+      <a href="economic_policy.html" class="block bg-teal-50 p-6 rounded-lg shadow hover:bg-teal-100 transition">
+        <h3 class="text-lg font-semibold text-teal-800">Economic Policy and Data Analysis</h3>
+        <p class="text-gray-700 mt-2">Expert policy papers and research for U.S. government and international clients.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="mb-12 px-6 md:px-20 max-w-5xl mx-auto bg-white p-6 rounded-lg shadow" data-aos="fade-up">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Values</h2>
+    <ul class="list-disc pl-6 text-gray-700 space-y-2">
+      <li>Integrity in every interaction</li>
+      <li>Clarity in communication and documentation</li>
+      <li>Strategy that drives results</li>
+      <li>Cultural and linguistic inclusivity</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-600 mt-16">
+    &copy; 2025 Cogent. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
 </html>
