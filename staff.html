@@ -195,6 +195,23 @@
 
  </section>
 
+
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-center my-12">
+
+  <a
+    href="booking.html"
+    class="bg-white text-teal-700 text-lg font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition duration-200"
+  >
+    Book a Session
+  </a>
+  
+  <a href="index.html" class="text-teal-600 hover:underline text-lg">
+    ← Return to Home
+  </a>
+
+  
+</div>
+
   <!-- Footer -->
   <footer style="text-align: center; font-size: 14px; color: #777; padding: 20px">
       &copy; 2025 Cogent. All rights reserved. <br />
@@ -221,13 +238,22 @@
   <script>
     AOS.init();
 
-    function openModal(id) {
+   // Modal functionality for staff
+      function openModal(id) {
       document.getElementById(id).classList.remove('hidden');
     }
 
     function closeModal(id) {
       document.getElementById(id).classList.add('hidden');
     }
+
+      // Close modal on outside click
+      document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('fixed')) {
+          const modals = document.querySelectorAll('.fixed');
+          modals.forEach(modal => modal.classList.add('hidden'));
+        }
+      });
   </script>
 </body>
 </html>

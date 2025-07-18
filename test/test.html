@@ -1,119 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book a Session - Cogent</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800 px-8 md:px-20 py-12">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cogent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <!-- Navigation -->
-  <nav class="bg-white shadow-sm px-6 py-4 sticky top-0 z-50">
-    <div class="flex items-center justify-between max-w-7xl mx-auto">
-      <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
-      <button
-        class="md:hidden"
-        onclick="document.getElementById('menu').classList.toggle('hidden')"
-        aria-label="Open navigation menu"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
+    <style>
+      #slideshow .slide {
+        transition: opacity 1s ease-in-out;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* Adjust based on navbar height */
+      }
 
-    <!-- Nav links -->
-    <div
-      id="menu"
-      class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
+      /* Navbar slide effect */
+      #navbar {
+        transition: transform 0.3s ease-in-out;
+      }
+      .nav-hidden {
+        transform: translateY(-100%);
+      }
+      .nav-visible {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-[#f3f7f8] text-gray-800">
+    <!-- Navigation -->
+    <nav
+      id="navbar"
+      class="bg-white shadow-sm px-6 py-1 sticky top-0 z-50 nav-visible"
     >
-      <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
-      <div class="relative group">
+      <div class="flex items-center justify-between max-w-7xl mx-auto">
+        <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
         <button
-          onclick="toggleSubmenu()"
-          class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
+          id="menu-toggle"
+          class="md:hidden focus:outline-none"
+          onclick="toggleMenu()"
+          title="Toggle navigation menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
         >
-          About
-          <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          <svg
+            id="menu-icon"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
-        <!-- Submenu -->
-        <div
-          id="about-submenu"
-          class="md:invisible md:opacity-0 md:translate-y-1 md:group-hover:visible md:group-hover:opacity-100 md:group-hover:translate-y-0 md:transition-all md:duration-300 md:ease-out
-                 hidden md:block absolute bg-white shadow-md rounded-md md:mt-2 w-48 z-50"
+      </div>
+
+      <div
+        id="menu"
+        class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
+      >
+        <a href="index.html" class="block py-1 hover:text-teal-600 menu-item">Home</a>
+        <div class="relative group">
+          <button
+            onclick="toggleSubmenu()"
+            class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
+          >
+            About
+            <svg
+              class="ml-1 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          <div
+            id="about-submenu"
+            class="md:invisible md:opacity-0 md:translate-y-1 md:group-hover:visible md:group-hover:opacity-100 md:group-hover:translate-y-0 md:transition-all md:duration-300 md:ease-out hidden md:block absolute bg-white shadow-md rounded-md md:mt-2 w-48 z-50"
+          >
+            <a href="about.html" class="block px-4 py-2 hover:bg-teal-50 menu-item"
+              >About Cogent</a
+            >
+            <a href="staff.html" class="block px-4 py-2 hover:bg-teal-50 menu-item"
+              >Meet Our Staff</a
+            >
+            <a href="mission.html" class="block px-4 py-2 hover:bg-teal-50 menu-item"
+              >Mission & Vision</a
+            >
+            <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50 menu-item"
+              >Careers</a
+            >
+          </div>
+        </div>
+        <a href="services.html" class="block py-1 hover:text-teal-600 menu-item"
+          >Services</a
         >
-          <a href="about.html" class="block px-4 py-2 hover:bg-teal-50">About Cogent</a>
-          <a href="staff.html" class="block px-4 py-2 hover:bg-teal-50">Meet Our Staff</a>
-          <a href="mission.html" class="block px-4 py-2 hover:bg-teal-50">Mission & Vision</a>
-          <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50">Careers</a>
+        <a href="booking.html" class="block py-1 hover:text-teal-600 menu-item"
+          >Booking</a
+        >
+        <a href="testimonials.html" class="block py-1 hover:text-teal-600 menu-item"
+          >Testimonials</a
+        >
+        <a href="contact.html" class="block py-1 hover:text-teal-600 menu-item"
+          >Contact us</a
+        >
+      </div>
+    </nav>
+
+    <!-- Quote -->
+    <section
+      class="bg-teal-50 text-center py-2 px-4 shadow-sm"
+      data-aos="fade-up"
+    >
+      <p
+        class="text-xl md:text-2xl text-teal-900 italic font-semibold tracking-wide animate__animated animate__fadeInDown"
+      >
+        “Clear, logical, and convincing legal and educational services”
+      </p>
+    </section>
+    <!-- 🖼 Slideshow Section -->
+    <section class="relative w-full overflow-hidden" id="slideshow">
+      <div class="slideshow-wrapper relative h-[300px] md:h-[800px]">
+        <!-- Slide 1 -->
+        <div class="slide absolute w-full h-full opacity-100">
+          <img
+            src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            class="w-full h-full object-cover"
+            alt="Slide 1"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
+          >
+            <h2 class="text-white text-2xl md:text-4xl font-bold mb-6">
+              Empowering Minds with Cogent Learning
+            </h2>
+
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <a
+                href="#divisions"
+                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+              >
+                Explore Our Divisions
+              </a>
+              <a
+                href="booking.html"
+                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+              >
+                Book a Session
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide absolute w-full h-full opacity-0">
+          <img
+            src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            class="w-full h-full object-cover"
+            alt="Slide 2"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
+          >
+            <h2 class="text-white text-2xl md:text-4xl font-bold mb-6">
+              Global Legal Insight, Local Expertise
+            </h2>
+
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <a
+                href="#divisions"
+                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+              >
+                Explore Our Divisions
+              </a>
+              <a
+                href="booking.html"
+                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+              >
+                Book a Session
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide absolute w-full h-full opacity-0">
+          <img
+            src="https://images.pexels.com/photos/3184173/pexels-photo-3184173.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            class="w-full h-full object-cover"
+            alt="Slide 3"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
+          >
+            <h2 class="text-white text-2xl md:text-4xl font-bold mb-6">
+              Smart Consulting for a Better Tomorrow
+            </h2>
+
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <a
+                href="#divisions"
+                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+              >
+                Explore Our Divisions
+              </a>
+              <a
+                href="booking.html"
+                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+              >
+                Book a Session
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
-      <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
-      <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
-      <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
-    </div>
-  </nav>
+    </section>
 
-  <!-- Booking Section -->
-  <section class="px-8 md:px-20 py-16 max-w-5xl mx-auto">
-    <h1 class="text-3xl font-semibold mb-6 text-teal-700">Book a Session</h1>
-    <p class="mb-4 text-gray-700">
-      Use the form below to proceed. All sessions are held virtually unless otherwise discussed.
-    </p>
-
-    <!-- Agreement Box -->
-    <div class="max-w-xl mx-auto bg-white p-6 mt-8 rounded shadow text-center">
-      <h2 class="text-2xl font-semibold text-teal-700 mb-4">Ready to Book?</h2>
-      <p class="text-gray-700 mb-4">
-        Please review and agree to our
-        <a href="terms.html" target="_blank" class="text-teal-600 underline hover:text-teal-800">Terms of Engagement</a>
-        and
-        <a href="privacy.html" target="_blank" class="text-teal-600 underline hover:text-teal-800">Privacy Policy</a>
-        before continuing.
+    <div class="mb-6 text-center">
+      <p class="text-teal-800 font-semibold italic">
+        Se habla español. Fala português.
       </p>
-
-      <label class="inline-flex items-start mb-4">
-        <input type="checkbox" id="agree" class="mr-2 mt-1">
-        <span class="text-gray-800">I have read and agree to the terms and privacy policy.</span>
-      </label>
-
-      <div class="mt-6">
-        <button 
-          onclick="goToBooking()"
-          class="bg-teal-600 text-white px-6 py-2 rounded hover:bg-teal-700 transition"
-        >
-          Proceed to Booking
-        </button>
-      </div>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-600 mt-16">
-    &copy; 2025 Cogent. All rights reserved.
-  </footer>
+    <!-- Explore Divisions -->
+    <section
+      class="px-6 md:px-20 py-12 bg-white mt-0"
+      id="divisions"
+      data-aos="fade-up"
+    >
+      <div class="text-center max-w-3xl mx-auto mb-10 px-4">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">
+          Explore Our Divisions
+        </h2>
+        <p class="text-gray-700 text-lg md:text-xl">
+          Specializing in U.S. tax law, immigration, international development,
+          and multilingual education. Serving governments, NGOs, and individuals
+          with integrity, strategy, and impact.
+        </p>
+      </div>
 
-  <!-- Scripts -->
-  <script>
-    function toggleSubmenu() {
-      if (window.innerWidth < 768) {
-        const submenu = document.getElementById('about-submenu');
-        submenu.classList.toggle('hidden');
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Tile 1 -->
+        <a
+          href="cogent_learning.html"
+          class="group relative rounded-lg overflow-hidden shadow-md division-tile"
+        >
+          <img
+            src="/images/learningimage.jpg"
+        
+            sizes="(max-width: 768px) 600px, 940px"
+            alt="Cogent Learning"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"
+          ></div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <h3 class="text-xl font-semibold">Cogent Learning</h3>
+            <p class="text-sm">
+              Tutoring and education services tailored to individual student
+              success.
+            </p>
+          </div>
+        </a>
+
+        <!-- Tile 2 -->
+        <a
+          href="cogent_legal.html"
+          class="group relative rounded-lg overflow-hidden shadow-md division-tile"
+        >
+          <img
+            src="/images/cogent-legal-940.jpg"
+            srcset="/images/cogent-legal-600.jpg 600w,
+                    /images/cogent-legal-940.jpg 940w"
+            sizes="(max-width: 768px) 600px, 940px"
+            alt="Cogent Legal"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"
+          ></div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <h3 class="text-xl font-semibold">Cogent Legal</h3>
+            <p class="text-sm">
+              Legal advisory on U.S. inbound/outbound tax law and international compliance.
+            </p>
+          </div>
+        </a>
+
+        <!-- Tile 3 -->
+        <a
+          href="cogent_consulting.html"
+          class="group relative rounded-lg overflow-hidden shadow-md division-tile"
+        >
+          <img
+            src="/images/cogent-consulting-940.jpg"
+            srcset="/images/cogent-consulting-600.jpg 600w,
+                    /images/cogent-consulting-940.jpg 940w"
+            sizes="(max-width: 768px) 600px, 940px"
+            alt="Cogent Consulting"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"
+          ></div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <h3 class="text-xl font-semibold">Cogent Consulting</h3>
+            <p class="text-sm">
+              Consulting on NGO strategy, non-profit development, and international aid.
+            </p>
+          </div>
+        </a>
+
+        <!-- Tile 4 -->
+        <a
+          href="economic_policy.html"
+          class="group relative rounded-lg overflow-hidden shadow-md division-tile"
+        >
+          <img
+            src="/images/economic-policy-940.jpg"
+            srcset="/images/economic-policy-600.jpg 600w,
+                    /images/economic-policy-940.jpg 940w"
+            sizes="(max-width: 768px) 600px, 940px"
+            alt="Economic Policy"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"
+          ></div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <h3 class="text-xl font-semibold">Cogent Economic Policy & Data</h3>
+            <p class="text-sm">
+              U.S. government and likeminded institution Policy Papers, Cables, Speeches, Briefings, and Presentations.
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+   <!-- Footer -->
+    <footer
+      style="text-align: center; font-size: 14px; color: #777; padding: 20px"
+    >
+      © 2025 Cogent. All rights reserved. <br />
+      Some images used are licensed under open-source licenses and belong to
+      their respective creators.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init();
+
+      function toggleSubmenu() {
+        if (window.innerWidth < 768) {
+          const submenu = document.getElementById("about-submenu");
+          submenu.classList.toggle("hidden");
+        }
       }
-    }
 
-    function goToBooking() {
-      const agreed = document.getElementById("agree").checked;
-      if (agreed) {
-        window.location.href = "https://tidycal.com/your-booking-link"; // <-- replace with your TidyCal link
-      } else {
-        alert("Please agree to the terms before proceeding.");
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        const menuToggle = document.getElementById("menu-toggle");
+        const menuIcon = document.getElementById("menu-icon");
+        const isOpen = !menu.classList.contains("hidden");
+        
+        menu.classList.toggle("hidden");
+        menuToggle.setAttribute("aria-expanded", !isOpen);
+        
+        // Toggle hamburger icon to X
+        if (!isOpen) {
+          menuIcon.innerHTML = `
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          `;
+        } else {
+          menuIcon.innerHTML = `
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          `;
+        }
       }
-    }
-  </script>
-</body>
+
+      // Debounce function to limit scroll event frequency
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // Close menu on scroll for mobile
+      const closeMenuOnScroll = debounce(() => {
+        if (window.innerWidth < 768) {
+          const menu = document.getElementById("menu");
+          const menuToggle = document.getElementById("menu-toggle");
+          const menuIcon = document.getElementById("menu-icon");
+          if (!menu.classList.contains("hidden")) {
+            menu.classList.add("hidden");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuIcon.innerHTML = `
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            `;
+          }
+        }
+      }, 100);
+
+      window.addEventListener("scroll", closeMenuOnScroll);
+
+      // Close menu on menu item click for mobile
+      document.querySelectorAll(".menu-item").forEach(item => {
+        item.addEventListener("click", () => {
+          if (window.innerWidth < 768) {
+            const menu = document.getElementById("menu");
+            const menuToggle = document.getElementById("menu-toggle");
+            const menuIcon = document.getElementById("menu-icon");
+            menu.classList.add("hidden");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuIcon.innerHTML = `
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            `;
+          }
+        });
+      });
+
+      // Keyboard accessibility for menu toggle
+      document.getElementById("menu-toggle").addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleMenu();
+        }
+      });
+
+      // Slideshow Logic
+      let slideIndex = 0;
+      const slides = document.querySelectorAll("#slideshow .slide");
+
+      function showNextSlide() {
+        slides.forEach((slide, i) => {
+          slide.style.opacity = i === slideIndex ? "1" : "0";
+        });
+        slideIndex = (slideIndex + 1) % slides.length;
+      }
+
+      setInterval(showNextSlide, 5000); // Change slide every 5 seconds
+
+      // Navbar scroll behavior
+      let lastScrollY = window.scrollY;
+      const navbar = document.getElementById("navbar");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > lastScrollY) {
+          // Scrolling down
+          navbar.classList.remove("nav-visible");
+          navbar.classList.add("nav-hidden");
+        } else {
+          // Scrolling up
+          navbar.classList.remove("nav-hidden");
+          navbar.classList.add("nav-visible");
+        }
+        lastScrollY = window.scrollY;
+      });
+    </script>
+  </body>
 </html>

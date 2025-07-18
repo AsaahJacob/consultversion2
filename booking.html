@@ -1,71 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book a Session-Cogent</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#f3f7f8] text-gray-800">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cogent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <nav class="bg-white shadow-sm px-6 py-4 sticky top-0 z-50">
-  <div class="flex items-center justify-between max-w-7xl mx-auto">
-    <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
-    <button
-      class="md:hidden"
-      onclick="document.getElementById('menu').classList.toggle('hidden')"
-      aria-label="Open navigation menu"
+    <style>
+      #slideshow .slide {
+        transition: opacity 1s ease-in-out;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* Adjust based on navbar height */
+      }
+
+      /* Navbar slide effect */
+      #navbar {
+        transition: transform 0.3s ease-in-out;
+      }
+      .nav-hidden {
+        transform: translateY(-100%);
+      }
+      .nav-visible {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-[#f3f7f8] text-gray-800">
+    <!-- Navigation -->
+    <nav
+      id="navbar"
+      class="bg-white shadow-sm px-6 py-1 sticky top-0 z-50 nav-visible"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
+      <div class="flex items-center justify-between max-w-7xl mx-auto">
+        <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
+        <button
+          id="menu-toggle"
+          class="md:hidden focus:outline-none"
+          onclick="toggleMenu()"
+          title="Toggle navigation menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <svg
+            id="menu-icon"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
 
-  <!-- Nav links -->
-  <div
-    id="menu"
-    class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
-  >
-    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
-
-    <!-- ABOUT w/ DROPDOWN -->
-    <div class="relative group">
-      <button
-        onclick="toggleSubmenu()"
-        class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
-      >
-        About
-        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-
-      <!-- Submenu -->
       <div
-  id="about-submenu"
-  class="md:invisible md:opacity-0 md:translate-y-1 md:group-hover:visible md:group-hover:opacity-100 md:group-hover:translate-y-0 md:transition-all md:duration-300 md:ease-out
-         hidden md:block absolute bg-white shadow-md rounded-md md:mt-2 w-48 z-50"
->
-  <a href="about.html" class="block px-4 py-2 hover:bg-teal-50">About Cogent</a>
-  <a href="staff.html" class="block px-4 py-2 hover:bg-teal-50">Meet Our Staff</a>
-  <a href="mission.html" class="block px-4 py-2 hover:bg-teal-50">Mission & Vision</a>
-  <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50">Careers</a>
-</div>
-    </div>
+        id="menu"
+        class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
+      >
+        <a href="index.html" class="block py-1 hover:text-teal-600 menu-item">Home</a>
+        <div class="relative group">
+          <button
+            onclick="toggleSubmenu()"
+            class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
+          >
+            About
+            <svg
+              class="ml-1 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          <div class="relative group">
+  <!-- Trigger Button Here (e.g., About Menu) -->
 
-    <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
-    <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
-    <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
-    <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
+  <!-- Submenu -->
+  <div
+    id="about-submenu"
+    class="absolute left-0 w-48 z-50 bg-white shadow-md rounded-md mt-2
+           opacity-0 scale-y-95 group-hover:opacity-100 group-hover:scale-y-100
+           transition-all duration-300 origin-top transform
+           pointer-events-none group-hover:pointer-events-auto"
+  >
+    <a href="about.html" class="block px-4 py-2 hover:bg-teal-50 menu-item">About Cogent</a>
+    <a href="about.html#staff" class="block px-4 py-2 hover:bg-teal-50 menu-item">Meet Our Staff</a>
+    <a href="about.html#mission" class="block px-4 py-2 hover:bg-teal-50 menu-item">Mission & Vision</a>
+    <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50 menu-item">Careers</a>
   </div>
-</nav>
-
+</div>
+        </div>
+        <a href="services.html" class="block py-1 hover:text-teal-600 menu-item"
+          >Services</a
+        >
+        <a href="booking.html" class="block py-1 hover:text-teal-600 menu-item"
+          >Booking</a
+        >
+        <a href="testimonials.html" class="block py-1 hover:text-teal-600 menu-item"
+          >Testimonials</a
+        >
+        <a href="contact.html" class="block py-1 hover:text-teal-600 menu-item"
+          >Contact us</a
+        >
+      </div>
+    </nav>
   <!-- Booking Section -->
-<section class="px-8 md:px-20 py-16 max-w-5xl mx-auto">
-  <h1 class="text-3xl font-semibold text-teal-700 mb-6">Book a Session</h1>
-  <p class="mb-6 text-gray-700">Select the appropriate service below to book a session with one of our specialists. All sessions are virtual unless otherwise arranged.</p>
 
+  <section class="bg-teal-50 text-center py-10 px-6 shadow-sm mb-10">
+  <h1 class="text-4xl font-bold text-teal-800 mb-2">Book a Session</h1>
+  <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+    Schedule time with our legal, learning, consulting, or policy experts. All sessions are virtual unless otherwise arranged.
+  </p>
+</section>
+
+<section class="px-8 md:px-20 py-5 max-w-5xl mx-auto">
   <div class="grid md:grid-cols-2 gap-6">
 
     <!-- Cogent Legal -->
@@ -78,7 +140,7 @@
     <!-- Cogent Learning -->
     <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
       <h2 class="text-xl font-bold text-teal-800 mb-2">Cogent Learning</h2>
-      <p class="text-gray-700 mb-4">Schedule a personalized tutoring or multilingual education strategy session.</p>
+      <p class="text-gray-700 mb-4">Personalized tutoring or multilingual education.</p>
       <a href="Learning_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book Learning Session</a>
     </div>
 
@@ -99,6 +161,13 @@
   </div>
 </section>
 
+<div class="text-center mt-16">
+  <a href="index.html" class="inline-block text-teal-600 hover:underline text-lg">← Return to Home</a>
+</div>
+
+<footer class="bg-white py-6 mt-16 border-t text-center text-gray-500 text-sm">
+  <p>&copy; 2025 Cogent. All rights reserved.</p>
+</footer>
 
    <script>
   function toggleSubmenu() {

@@ -1,0 +1,19 @@
+/* zoom in from scale(1) → scale(1.1) over the slide interval */
+@keyframes zoomInSlow {
+  from { transform: scale(1); }
+  to   { transform: scale(1.1); }
+}
+
+/* zoom out from scale(1.1) → scale(1) over the slide interval */
+@keyframes zoomOutSlow {
+  from { transform: scale(1.1); }
+  to   { transform: scale(1); }
+}
+
+/* one of these will be applied per slide */
+.zoom-in-slow {
+  animation: zoomInSlow 6s ease-in-out forwards;
+}
+.zoom-out-slow {
+  animation: zoomOutSlow 6s ease-in-out forwards;
+}
