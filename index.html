@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/slideshow-animations.css">
 
     <style>
-      /* ✨ Preloader pulse animation */
+      /* Preloader pulse animation */
       @keyframes pulse-logo {
         0%, 100% { transform: scale(1); }
         50%      { transform: scale(1.1); }
@@ -490,16 +490,21 @@
     <script>
       AOS.init();
 // Preloader Logic
-      window.addEventListener('load', () => {
-        const loader = document.getElementById('preloader');
-        // Fade out
-        loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
-        setTimeout(() => {
-          loader.remove();
-          // Re-enable scrolling
-          document.body.classList.remove('overflow-hidden');
-        }, 500);
-      });
+     window.addEventListener('load', () => {
+  const loader = document.getElementById('preloader');
+  // Fade out
+  loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+
+  setTimeout(() => {
+    loader.remove();
+    document.body.classList.remove('overflow-hidden');
+    
+    // Smooth scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  }, 500);
+});
+
 
 
       function toggleSubmenu() {
