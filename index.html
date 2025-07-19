@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="css/slideshow-animations.css">
 
     <style>
+      /* ✨ Preloader pulse animation */
+      @keyframes pulse-logo {
+        0%, 100% { transform: scale(1); }
+        50%      { transform: scale(1.1); }
+      }
+      .animate-pulse {
+        animation: pulse-logo 1.2s ease-in-out infinite;
+      }
+
       #slideshow .slide {
         transition: opacity 1s ease-in-out;
       }
@@ -29,7 +38,21 @@
       }
     </style>
   </head>
-  <body class="overflow-x-hidden bg-[#f3f7f8] text-gray-800">
+  <body class="overflow-hidden bg-[#f3f7f8] text-gray-800">
+
+    <!-- 2) Preloader overlay -->
+    <div
+      id="preloader"
+      class="fixed inset-0 bg-white flex items-center justify-center z-50"
+    >
+      <!-- Swap in your SVG/logo as desired -->
+      <img
+        src="images/logo.JPG"
+        alt="Loading Cogent…"
+        class="w-40 animate-pulse"
+      />
+    </div>
+
 <div class="overflow-x-hidden w-full">
     <!-- Navigation -->
     <nav
@@ -466,6 +489,18 @@
     <script src="active-link.js"></script>
     <script>
       AOS.init();
+// Preloader Logic
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('preloader');
+        // Fade out
+        loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+        setTimeout(() => {
+          loader.remove();
+          // Re-enable scrolling
+          document.body.classList.remove('overflow-hidden');
+        }, 500);
+      });
+
 
       function toggleSubmenu() {
         if (window.innerWidth < 768) {
