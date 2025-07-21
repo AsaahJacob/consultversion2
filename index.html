@@ -10,6 +10,7 @@
 
     <style>
 
+
       html, body {
   max-width: 100vw;
   overflow-x: hidden;
@@ -31,6 +32,30 @@
         scroll-behavior: smooth;
         scroll-padding-top: 80px; /* Adjust based on navbar height */
       }
+
+      /* Scrollbar width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f3f7f8; /* light background */
+  }
+
+  /* Thumb (scroll handle) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #0f766e; /* same as text-teal-700 */
+    border-radius: 6px;
+    border: 2px solid #f3f7f8;
+  }
+
+  /* Hover effect */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #0d9488; /* tailwind teal-600 */
+    /* Add a subtle scale effect on hover */
+    transform: scale(1.1);
+  }
 
       /* Navbar slide effect */
       #navbar {
