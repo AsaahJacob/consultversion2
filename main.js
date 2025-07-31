@@ -22,15 +22,27 @@ window.addEventListener('load', () => {
 
 // active-link.js// This script highlights the active link in the navigation bar based on the current URL path.
 
-const path = window.location.pathname.replace(/\/$/, "").replace(".html", "");
+// 1. Figure out the current “page key”
+const rawPath = window.location.pathname.replace(/\/$/, "");            // e.g. "/about.html" → "/about.html", "/" → ""
+const pageKey = (rawPath === "" || rawPath === "/") 
+  ? "index" 
+  : rawPath.replace(/^\//, "").replace(".html", "");                   // strip leading slash, drop .html
 
-document.querySelectorAll("nav a").forEach(link => {
-  const linkPath = new URL(link.href).pathname.replace(/\/$/, "").replace(".html", "");
+// 2. Grab every <a> in the desktop nav
+document.querySelectorAll("#navbar .md\\:flex a[href]").forEach(link => {
+  // 3. Skip any submenu or mobile‐menu links
+  if (link.closest("#desktop-about-submenu") || link.closest("#menu")) return;
 
-  if (path === linkPath) {
+  // 4. Compute the link’s key
+  const linkHref = new URL(link.href).pathname.replace(/\/$/, "");
+  const linkKey = linkHref.replace(/^\//, "").replace(".html", "");
+
+  // 5. Match & highlight
+  if (linkKey === pageKey) {
     link.classList.add("text-teal-700", "font-bold");
   }
 });
+
 
 // Stop pulsing on slide buttons after 3 seconds
 setTimeout(() => {
@@ -323,3 +335,20 @@ window.addEventListener('scroll', () => {
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
 });
+
+// Modal functionality for staff
+      function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+      // Close modal on outside click
+      document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('fixed')) {
+          const modals = document.querySelectorAll('.fixed');
+          modals.forEach(modal => modal.classList.add('hidden'));
+        }
+      });

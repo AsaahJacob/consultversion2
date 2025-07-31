@@ -1,64 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - Cogent</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    
 
-<body class="bg-[#f3f7f8] text-gray-800">
- <nav class="bg-white shadow-sm px-6 py-4 sticky top-0 z-50">
-  <div class="flex items-center justify-between max-w-7xl mx-auto">
-    <a href="index.html" class="text-3xl font-bold text-teal-700">Cogent</a>
-    <button
-      class="md:hidden"
-      onclick="document.getElementById('menu').classList.toggle('hidden')"
-      aria-label="Toggle navigation menu"
+    <style>
+
+      html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+      /* ✨ Preloader pulse animation */
+      @keyframes pulse-logo {
+        0%, 100% { transform: scale(1); }
+        50%      { transform: scale(1.1); }
+      }
+      .animate-pulse {
+        animation: pulse-logo 1.2s ease-in-out infinite;
+      }
+
+      #slideshow .slide {
+        transition: opacity 1s ease-in-out;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* Adjust based on navbar height */
+      }
+
+      /* Scrollbar width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f3f7f8; /* light background */
+  }
+
+  /* Thumb (scroll handle) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #0f766e; /* same as text-teal-700 */
+    border-radius: 6px;
+    border: 2px solid #f3f7f8;
+  }
+
+  /* Hover effect */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #0d9488; /* tailwind teal-600 */
+    /* Add a subtle scale effect on hover */
+    transform: scale(1.1);
+  }
+
+      /* Modern Navbar effects */
+      #navbar {
+        transition: all 0.5s ease-in-out;
+      }
+      .nav-hidden {
+        transform: translateY(-100%);
+      }
+      .nav-visible {
+        transform: translateY(0);
+      }
+
+      /* Hover underline animation */
+      .nav-link-underline {
+        position: relative;
+      }
+      .nav-link-underline::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #0d9488;
+        transition: width 0.3s ease;
+      }
+      .nav-link-underline:hover::after {
+        width: 100%;
+      }
+
+      /* Mobile menu backdrop */
+      .mobile-menu-backdrop {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+      }
+
+      /* Mobile menu improvements */
+      .mobile-menu-item {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .mobile-menu-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: #0d9488;
+        transform: scaleY(0);
+        transition: transform 0.2s ease;
+      }
+      
+      .mobile-menu-item:hover::before {
+        transform: scaleY(1);
+      }
+
+      /* Submenu animation */
+      .submenu-enter {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      
+      .submenu-enter-active {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      /* Image optimization styles */
+      .lazy-image {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .lazy-image.loaded {
+        opacity: 1;
+      }
+    </style>
+
+
+  </head>
+  <body class="overflow-hidden bg-[#f3f7f8] text-gray-800">
+
+    <!-- 2) Preloader overlay -->
+    <div
+      id="preloader"
+      class="fixed inset-0 bg-white flex items-center justify-center z-50"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      <!--  SVG/logo  -->
+      <img
+        src="images/logo.svg"
+        alt="Loading Cogent…"
+        class="w-40 animate-pulse"
+        loading="eager"
+      />
+    </div>
+
+
+    <!--  Navigation bar -->
+<nav
+  id="navbar"
+  class="bg-white/80 backdrop-blur-md border-b border-gray-100/50 px-6 py-2 fixed top-0 left-0 right-0 z-50 nav-visible transition-all duration-500"
+>
+  <div class="flex items-center justify-between max-w-7xl mx-auto w-full relative">
+    <!-- Logo -->
+    <a href="index.html" class="text-3xl font-bold text-teal-700 mr-6 hover:text-teal-600 transition-colors duration-300">
+      Cogent
+    </a>
+    
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="index.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
+        Home
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+
+             <div class="relative group" onmouseenter="showAboutSubmenu()" onmouseleave="hideAboutSubmenu()">
+         <button class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 flex items-center space-x-1">
+           <span>About</span>
+           <svg id="desktop-submenu-icon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+           </svg>
+         </button>
+         <div id="desktop-about-submenu" class="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-gray-100/50 opacity-0 invisible transition-all duration-300 transform -translate-y-2">
+           <div class="py-2">
+             <a href="about.html" class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 transition-all duration-200 menu-item">About Cogent</a>
+             <a href="about.html#staff" class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 transition-all duration-200 menu-item">Meet Our Staff</a>
+             <a href="about.html#mission" class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 transition-all duration-200 menu-item">Mission & Vision</a>
+             <a href="careers.html" class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 transition-all duration-200 menu-item">Careers</a>
+           </div>
+         </div>
+       </div>
+
+      <a href="services.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
+        Services
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      
+      <a href="booking.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
+        Booking
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      
+      <a href="testimonials.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
+        Testimonials
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      
+      <a href="contact.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
+        Contact
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="menu-toggle"
+      class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+      onclick="toggleMenu()"
+      title="Toggle navigation menu"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+    >
+      <svg
+        id="menu-icon"
+        class="w-6 h-6 text-gray-700"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
       </svg>
     </button>
   </div>
 
-  <!-- Nav links -->
+  <!-- Mobile Menu Backdrop -->
   <div
-    id="menu"
-    class="hidden md:flex md:justify-center mt-4 md:mt-0 md:space-x-6 text-lg font-medium text-gray-700 flex-col md:flex-row"
-  >
-    <a href="index.html" class="block py-1 hover:text-teal-600">Home</a>
+    id="menu-backdrop"
+    class="hidden fixed inset-0 bg-transparent z-40"
+    onclick="toggleMenu()"
+  ></div>
+  
+       <!-- Mobile Menu -->
+   <div
+     id="menu"
+     class="hidden fixed top-0 right-0 w-64 h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-500 ease-in-out"
+   >
+    <div class="flex flex-col h-full bg-white">
+      <!-- Mobile Menu Header -->
+      <div class="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50">
+        <div class="flex items-center space-x-1">
+          <span class="text-2xl font-bold text-teal-700">Menu</span>
+        </div>
+        <button
+          onclick="toggleMenu()"
+          class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+          aria-label="Close menu"
+        >
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
-    <!-- ABOUT w/ DROPDOWN -->
-    <div class="relative group">
-      <button
-        onclick="toggleSubmenu()"
-        class="flex items-center justify-between w-full md:w-auto py-1 hover:text-teal-600"
-      >
-        About
-        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+                    <!-- Mobile Menu Items -->
+        <div class="flex-1 px-4 py-4 space-y-1">
+          <a href="index.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
+            <span class="text-lg font-semibold">Home</span>
+          </a>
 
-      <!-- Submenu -->
-      <div
-  id="about-submenu"
-  class="md:invisible md:opacity-0 md:translate-y-1 md:group-hover:visible md:group-hover:opacity-100 md:group-hover:translate-y-0 md:transition-all md:duration-300 md:ease-out
-         hidden md:block absolute bg-white shadow-md rounded-md md:mt-2 w-48 z-50"
->
-  <a href="about.html" class="block px-4 py-2 hover:bg-teal-50">About Cogent</a>
-  <a href="staff.html" class="block px-4 py-2 hover:bg-teal-50">Meet Our Staff</a>
-  <a href="mission.html" class="block px-4 py-2 hover:bg-teal-50">Mission & Vision</a>
-  <a href="careers.html" class="block px-4 py-2 hover:bg-teal-50">Careers</a>
-</div>
+          <div class="space-y-1">
+            <button
+              onclick="toggleSubmenu()"
+              class="w-full flex items-center justify-between py-3 px-4 text-gray-900 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 mobile-menu-item shadow-sm"
+              aria-expanded="false"
+              aria-controls="about-submenu"
+            >
+              <span class="text-lg font-semibold">About</span>
+              <svg id="submenu-icon" class="w-5 h-5 ml-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              id="about-submenu"
+              class="hidden space-y-1 ml-4"
+            >
+              <a href="about.html" class="block py-2 px-4 text-gray-700 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">About Cogent</a>
+              <a href="about.html#staff" class="block py-2 px-4 text-gray-700 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">Meet Our Staff</a>
+              <a href="about.html#mission" class="block py-2 px-4 text-gray-700 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">Mission & Vision</a>
+              <a href="careers.html" class="block py-2 px-4 text-gray-700 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">Careers</a>
+            </div>
+          </div>
+
+          <a href="services.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
+            <span class="text-lg font-semibold">Services</span>
+          </a>
+          
+          <a href="booking.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
+            <span class="text-lg font-semibold">Booking</span>
+          </a>
+          
+          <a href="testimonials.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
+            <span class="text-lg font-semibold">Testimonials</span>
+          </a>
+          
+          <a href="contact.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white/80 hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
+            <span class="text-lg font-semibold">Contact</span>
+          </a>
+        </div>
+
+      <!-- Mobile Menu Footer -->
+     
     </div>
-
-    <a href="services.html" class="block py-1 hover:text-teal-600">Services</a>
-    <a href="booking.html" class="block py-1 hover:text-teal-600">Booking</a>
-    <a href="testimonials.html" class="block py-1 hover:text-teal-600">Testimonials</a>
-    <a href="contact.html" class="block py-1 hover:text-teal-600">Get in Touch</a>
   </div>
 </nav>
 
@@ -77,28 +332,53 @@
 </form>
 
   </section>
-  <script src="active-link.js"></script>
+  <!-- Footer -->
+<footer class="bg-gray-100 py-6 mt-16 border-t">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between">
+    
+    <!-- 1. Copyright -->
+    <div class="text-center md:text-left">
+      <p class="text-sm text-gray-600">© 2025 Cogent. All rights reserved.</p>
+    </div>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
+    <!-- 2. Legal Links -->
+    <div class="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-4 text-sm text-gray-600">
+      <a href="privacy.html" class="hover:text-teal-600 transition">Privacy Policy</a>
+      <a href="terms.html" class="hover:text-teal-600 transition">Terms & Conditions</a>
+      <a href="disclaimer.html" class="hover:text-teal-600 transition">Disclaimer</a>
+    </div>
 
-<footer style="text-align:center; font-size:14px; color:#777; padding:20px;">
-  &copy; 2025 Cogent. All rights reserved. <br>
-  Some images used are licensed under open-source licenses and belong to their respective creators.
+    <!-- 3. Social Media Icons -->
+    <div class="flex space-x-4 items-center justify-center mt-4">
+  <!-- LinkedIn -->
+  <a href="https://linkedin.com" target="_blank" rel="noopener" title="LinkedIn" class="text-gray-600 hover:text-teal-600 transition">
+    <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.5v2.2h.05c.49-.93 1.69-2.2 3.45-2.2 3.69 0 4.5 2.43 4.5 5.6V24h-4v-7.2c0-1.72-.03-3.93-2.4-3.93-2.41 0-2.78 1.86-2.78 3.8V24h-4V8z"/>
+    </svg>
+  </a>
+
+  <!-- Facebook -->
+  <a href="https://facebook.com" target="_blank" rel="noopener" title="Facebook" class="text-gray-600 hover:text-teal-600 transition">
+    <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5v-2.3C10.5 7 11.9 6 13.5 6h2.5v3h-2c-.5 0-1 .4-1 1V12H16l-.5 3h-2v7A10 10 0 0022 12z"/>
+    </svg>
+  </a>
+
+  <!-- Twitter (X) -->
+  <a href="https://twitter.com" target="_blank" rel="noopener" title="Twitter/X" class="text-gray-600 hover:text-teal-600 transition">
+    <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M21.5 2h-3l-5.5 7.2L8 2H2l7.7 10.6L2 22h3l6-7.9L16 22h6l-8-11L21.5 2z"/>
+    </svg>
+  </a>
+</div>
+
+
+  </div>
 </footer>
 
- <script>
-  function toggleSubmenu() {
-    // Only trigger JS toggle on screens smaller than 768px (mobile)
-    if (window.innerWidth < 768) {
-      const submenu = document.getElementById('about-submenu');
-      submenu.classList.toggle('hidden');
-    }
-  }
-</script>
-
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="main.js"></script>
+    <script>AOS.init();</script>
 </body>
-
 </html>
