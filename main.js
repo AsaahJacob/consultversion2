@@ -1,22 +1,25 @@
 // Preloader Logic
 window.addEventListener('load', () => {
   const loader = document.getElementById('preloader');
-  const navbar = document.getElementById('navbar'); // 👈 ADD THIS LINE
+  const navbar = document.getElementById('navbar');
 
   loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
 
   setTimeout(() => {
     loader.remove();
     document.body.classList.remove('overflow-hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // 👇 TRIGGER navbar behavior manually on load
+    // Exempt 'about.html' from scrolling to top
+    const currentPage = window.location.pathname;
+    if (currentPage !== '/about.html') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
     if (currentScroll > 0) {
       navbar.classList.remove('nav-visible');
       navbar.classList.add('nav-hidden');
     }
-
   }, 500);
 });
 
