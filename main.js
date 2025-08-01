@@ -3,26 +3,37 @@ window.addEventListener('load', () => {
   const loader = document.getElementById('preloader');
   const navbar = document.getElementById('navbar');
 
-  loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+  if (loader) {
+    loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+    setTimeout(() => {
+      loader.remove();
+      document.body.classList.remove('overflow-hidden');
 
-  setTimeout(() => {
-    loader.remove();
-    document.body.classList.remove('overflow-hidden');
+      // Normalize pathname and check for hash
+      const currentPage = window.location.pathname.replace(/\/$/, '') || '/index.html';
+      const hash = window.location.hash;
+      const targetAnchors = ['#staff', '#mission', '#careers'];
+      const hasTargetAnchor = hash && targetAnchors.includes(hash);
 
-    // Exempt 'about.html' from scrolling to top
-    const currentPage = window.location.pathname;
-    if (currentPage !== '/about.html') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+      // Skip scroll-to-top for '/about' or any page with a target anchor
+      if (currentPage !== '/about' && !hasTargetAnchor) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hasTargetAnchor && currentPage === '/about') {
+        // Explicitly scroll to the <h2> element for #staff, #mission, or #careers
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
 
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScroll > 0) {
-      navbar.classList.remove('nav-visible');
-      navbar.classList.add('nav-hidden');
-    }
-  }, 500);
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScroll > 0) {
+        navbar.classList.remove('nav-visible');
+        navbar.classList.add('nav-hidden');
+      }
+    }, 100); // Reduced timeout to minimize conflicts
+  }
 });
-
 // active-link.js// This script highlights the active link in the navigation bar based on the current URL path.
 
 // 1. Figure out the current “page key”
