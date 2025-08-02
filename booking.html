@@ -316,48 +316,213 @@
     </div>
   </div>
 </nav>
-  <!-- Booking Section -->
-
-  <section class="bg-teal-50 text-center py-14 px-6 shadow-sm mb-10">
-  <h1 class="text-4xl font-bold text-teal-800 mb-2">Book a Session</h1>
-  <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-    Schedule time with our legal, learning, consulting, or policy experts. All sessions are virtual unless otherwise arranged.
-  </p>
-</section>
-
-<section class="px-8 md:px-20 py-5 max-w-5xl mx-auto">
-  <div class="grid md:grid-cols-2 gap-6">
-
-    <!-- Cogent Legal -->
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-bold text-teal-800 mb-2">Cogent Legal</h2>
-      <p class="text-gray-700 mb-4">U.S. tax, immigration, and compliance consultations for individuals and organizations.</p>
-      <a href="legal_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book Legal Session</a>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-teal-50 to-blue-50 py-20 px-8 md:px-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Hero Content -->
+        <div class="space-y-6">
+          <h1 class="text-4xl md:text-5xl font-bold text-teal-800 leading-tight">
+            Book Your Expert 
+            <span class="text-teal-600">Session Today</span>
+          </h1>
+          <p class="text-xl text-gray-600 leading-relaxed">
+            Schedule time with our legal, learning, consulting, or policy experts. All sessions are virtual unless otherwise arranged for your convenience.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#services" class="bg-teal-700 text-white px-8 py-4 rounded-lg hover:bg-teal-800 transition-all duration-300 font-semibold text-center">
+              View Services
+            </a>
+            <a href="contact.html" class="border-2 border-teal-700 text-teal-700 px-8 py-4 rounded-lg hover:bg-teal-700 hover:text-white transition-all duration-300 font-semibold text-center">
+              Contact Us
+            </a>
+          </div>
+        </div>
+        
+        <!-- Hero Image -->
+        <div class="relative">
+          <div class="relative z-10">
+            <img 
+              src="images/bookingimage.jpg" 
+              alt="Professional consultation" 
+              class="w-full h-96 object-cover rounded-2xl shadow-2xl"
+            />
+          </div>
+          <div class="absolute -bottom-4 -right-4 w-full h-full bg-teal-600 rounded-2xl -z-10"></div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Cogent Learning -->
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-bold text-teal-800 mb-2">Cogent Learning</h2>
-      <p class="text-gray-700 mb-4">Personalized tutoring or multilingual education.</p>
-      <a href="Learning_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book Learning Session</a>
+  <!-- Services Booking Section -->
+  <section id="services" class="py-20 px-8 md:px-20 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-teal-800 mb-4">Choose Your Expert Service</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Select from our comprehensive range of professional services tailored to your needs
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Cogent Legal -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-teal-800 mb-4">Cogent Legal</h3>
+          <p class="text-gray-600 mb-6">U.S. tax, immigration, and compliance consultations for individuals and organizations. Expert legal guidance for your business and personal needs.</p>
+          <div class="mb-6">
+            <img 
+              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+              alt="Legal consultation" 
+              class="w-full h-48 object-cover rounded-lg"
+            />
+          </div>
+          <a href="legal_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-8 py-4 rounded-lg hover:bg-teal-800 transition-all duration-300 font-semibold w-full text-center">
+            Book Legal Session
+          </a>
+        </div>
+
+        <!-- Cogent Learning -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-blue-800 mb-4">Cogent Learning</h3>
+          <p class="text-gray-600 mb-6">Personalized tutoring and multilingual education programs. Transform your learning journey with expert guidance and support.</p>
+          <div class="mb-6">
+            <img 
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80" 
+              alt="Learning session" 
+              class="w-full h-48 object-cover rounded-lg"
+            />
+          </div>
+          <a href="Learning_book.html" target="_blank" class="inline-block bg-blue-700 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-all duration-300 font-semibold w-full text-center">
+            Book Learning Session
+          </a>
+        </div>
+
+        <!-- Cogent Consulting -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-teal-800 mb-4">Cogent Consulting</h3>
+          <p class="text-gray-600 mb-6">NGO and nonprofit development consulting, strategic planning, and grant support. Build sustainable impact with expert guidance.</p>
+          <div class="mb-6">
+            <img 
+              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+              alt="Consulting strategy" 
+              class="w-full h-48 object-cover rounded-lg"
+            />
+          </div>
+          <a href="consult_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-8 py-4 rounded-lg hover:bg-teal-800 transition-all duration-300 font-semibold w-full text-center">
+            Book Consulting Session
+          </a>
+        </div>
+
+        <!-- Economic Policy and Data Analysis -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-green-800 mb-4">Economic Policy & Data Analysis</h3>
+          <p class="text-gray-600 mb-6">Expert briefings, policy writing, and research support for government or institutional clients. Data-driven insights for informed decisions.</p>
+          <div class="mb-6">
+            <img 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+              alt="Economic policy analysis" 
+              class="w-full h-48 object-cover rounded-lg"
+            />
+          </div>
+          <a href="eco_book.html" target="_blank" class="inline-block bg-green-700 text-white px-8 py-4 rounded-lg hover:bg-green-800 transition-all duration-300 font-semibold w-full text-center">
+            Book Policy Session
+          </a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Cogent Consulting -->
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-bold text-teal-800 mb-2">Cogent Consulting</h2>
-      <p class="text-gray-700 mb-4">NGO and nonprofit development consulting, strategic planning, and grant support.</p>
-      <a href="consult_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book Consulting Session</a>
+  <!-- Features Section -->
+  <section class="py-20 px-8 md:px-20 bg-gradient-to-br from-teal-50 to-blue-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-teal-800 mb-4">Why Book With Cogent?</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Experience the difference with our professional services and expert guidance
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-teal-800 mb-2">Expert Professionals</h3>
+          <p class="text-gray-600">Qualified experts in their respective fields</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-teal-800 mb-2">Flexible Scheduling</h3>
+          <p class="text-gray-600">Virtual sessions available at your convenience</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-teal-800 mb-2">Proven Results</h3>
+          <p class="text-gray-600">Track record of successful client outcomes</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-teal-800 mb-2">Personalized Approach</h3>
+          <p class="text-gray-600">Tailored solutions for your specific needs</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Economic Policy and Data Analysis -->
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-      <h2 class="text-xl font-bold text-teal-800 mb-2">Economic Policy and Data Analysis</h2>
-      <p class="text-gray-700 mb-4">Expert briefings, policy writing, and research support for government or institutional clients.</p>
-      <a href="eco_book.html" target="_blank" class="inline-block bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book Economic Policy and Data Analysis</a>
+  <!-- CTA Section -->
+  <section class="py-16 px-8 md:px-20 bg-gradient-to-r from-teal-600 to-teal-700">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+      <p class="text-xl text-teal-100 mb-8">
+        Choose your service above or contact us directly to discuss your specific needs and requirements.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="bg-white text-teal-700 px-8 py-4 rounded-lg hover:bg-gray-50 transition-all duration-300 font-semibold">
+          Contact Us
+        </a>
+        <a href="index.html" class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-teal-700 transition-all duration-300 font-semibold">
+          Return to Home
+        </a>
+      </div>
     </div>
-
-  </div>
-</section>
+  </section>
 
 <div class="text-center mt-16">
   <a href="index.html" class="inline-block text-teal-600 hover:underline text-lg">← Return to Home</a>

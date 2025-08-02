@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
+    <title>Cogent Consulting</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     
@@ -319,29 +319,207 @@
 
 
 
-  <section class="px-8 md:px-20 py-12">
-    <h1 class="text-3xl font-bold text-teal-800 mb-6">Cogent Consulting</h1>
-    <p class="mb-4 text-gray-700">We provide international development and NGO consulting services in the following areas:</p>
-
-    <ul class="list-disc list-inside mb-6 text-gray-700">
-      <li>NGO and Nonprofit Strategy Development</li>
-      <li>Grant Writing and Proposal Review</li>
-      <li>Program Evaluation and Impact Measurement</li>
-      <li>International Aid Compliance</li>
-      <li>Capacity Building and Staff Training</li>
-    </ul>
-
-    <a href="consult_book.html" class="bg-teal-700 text-white px-6 py-3 rounded-md hover:bg-teal-800 transition">Book a Consultation</a>
-
-
-      
-    <!-- Quick Navigation Buttons -->
-    <div class="mt-10 flex flex-col sm:flex-row gap-4">
-      <a href="cogent_learning.html" class="bg-white border border-teal-700 text-teal-700 px-6 py-2 rounded-md text-center hover:bg-teal-50 transition w-full sm:w-auto">Cogent Learning</a>
-      <a href="cogent_legal.html" class="bg-white border border-teal-700 text-teal-700 px-6 py-2 rounded-md text-center hover:bg-teal-50 transition w-full sm:w-auto">Cogent Legal</a>
-      <a href="economic_policy.html" class="bg-white border border-teal-700 text-teal-700 px-6 py-2 rounded-md text-center hover:bg-teal-50 transition w-full sm:w-auto">Economic Policy and Data Analysis</a>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-teal-50 to-blue-50 py-20 px-8 md:px-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Hero Content -->
+                 <div class="space-y-6">
+           <h1 class="text-4xl md:text-5xl font-bold text-teal-800 leading-tight">
+             Cogent Consulting
+           </h1>
+           <p class="text-xl text-gray-600 leading-relaxed">
+             Strategic consulting services for NGOs, nonprofits, and international development organizations. We help maximize impact and achieve sustainable growth through expert guidance and proven methodologies.
+           </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="consult_book.html" class="bg-teal-700 text-white px-8 py-4 rounded-lg hover:bg-teal-800 transition-all duration-300 font-semibold text-center">
+              Book a Consultation
+            </a>
+            <a href="#services" class="border-2 border-teal-700 text-teal-700 px-8 py-4 rounded-lg hover:bg-teal-700 hover:text-white transition-all duration-300 font-semibold text-center">
+              Our Services
+            </a>
+          </div>
+        </div>
+        
+        <!-- Hero Image -->
+        <div class="relative">
+          <div class="relative z-10">
+            <img 
+              src="images/consultimage.jpg" 
+              alt="Professional consulting team meeting" 
+              class="w-full h-96 object-cover rounded-2xl shadow-2xl"
+            />
+          </div>
+          <div class="absolute -bottom-4 -right-4 w-full h-full bg-teal-600 rounded-2xl -z-10"></div>
+        </div>
+      </div>
     </div>
+  </section>
 
+  <!-- Services Section -->
+  <section id="services" class="py-20 px-8 md:px-20 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-teal-800 mb-4">Our Consulting Services</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We provide comprehensive consulting services in international development and NGO management
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Card 1 -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-teal-800 mb-4">Strategy Development</h3>
+          <p class="text-gray-600 mb-6">Comprehensive NGO and nonprofit strategy development to align your mission with measurable outcomes.</p>
+          <img 
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+            alt="Strategy planning" 
+            class="w-full h-32 object-cover rounded-lg"
+          />
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-teal-800 mb-4">Grant Writing</h3>
+          <p class="text-gray-600 mb-6">Expert grant writing and proposal review to secure funding for your development projects.</p>
+          <img 
+            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+            alt="Grant writing" 
+            class="w-full h-32 object-cover rounded-lg"
+          />
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-teal-800 mb-4">Program Evaluation</h3>
+          <p class="text-gray-600 mb-6">Comprehensive program evaluation and impact measurement to demonstrate your organization's effectiveness.</p>
+          <img 
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+            alt="Data analysis" 
+            class="w-full h-32 object-cover rounded-lg"
+          />
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.61-2.806a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-teal-800 mb-4">Compliance & Aid</h3>
+          <p class="text-gray-600 mb-6">International aid compliance and regulatory guidance to ensure your programs meet global standards.</p>
+          <img 
+            src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2126&q=80" 
+            alt="Compliance documents" 
+            class="w-full h-32 object-cover rounded-lg"
+          />
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-teal-800 mb-4">Capacity Building</h3>
+          <p class="text-gray-600 mb-6">Staff training and capacity building programs to strengthen your organization's internal capabilities.</p>
+          <img 
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80" 
+            alt="Team training" 
+            class="w-full h-32 object-cover rounded-lg"
+          />
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100">
+          <div class="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-teal-800 mb-4">Partnership Development</h3>
+          <p class="text-gray-600 mb-6">Strategic partnership development to expand your network and amplify your impact globally.</p>
+          <img 
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+            alt="Partnership meeting" 
+            class="w-full h-32 object-cover rounded-lg"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 px-8 md:px-20 bg-gradient-to-r from-teal-600 to-teal-700">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Organization?</h2>
+      <p class="text-xl text-teal-100 mb-8">
+        Let's discuss how our consulting services can help you achieve your mission and maximize your impact.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="consult_book.html" class="bg-white text-teal-700 px-8 py-4 rounded-lg hover:bg-gray-50 transition-all duration-300 font-semibold">
+          Book a Session
+        </a>
+        <a href="contact.html" class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-teal-700 transition-all duration-300 font-semibold">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Navigation Section -->
+  <section class="py-16 px-8 md:px-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center">Explore Our Other Services</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="cogent_learning.html" class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-center group">
+          <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition">Cogent Learning</h3>
+          <p class="text-gray-600">Professional development and training programs</p>
+        </a>
+        
+        <a href="cogent_legal.html" class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-center group">
+          <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-600 transition">Cogent Legal</h3>
+          <p class="text-gray-600">Legal consulting and compliance services</p>
+        </a>
+        
+        <a href="economic_policy.html" class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 text-center group">
+          <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition">Economic Policy</h3>
+          <p class="text-gray-600">Data analysis and policy consulting</p>
+        </a>
+      </div>
+    </div>
   </section>
  <!-- Footer -->
 <footer class="bg-gray-100 py-6 mt-16 border-t">
