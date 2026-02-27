@@ -1,24 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cogent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/slideshow-animations.css">
+   
+   <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            50: "#eef3f8",
+            100: "#d6e1ec",
+            200: "#b3c8db",
+            300: "#7fa4c3",
+            400: "#4f7faa",
+            500: "#2e5e8f",
+            600: "#204b74",
+            700: "#153151", /* PRIMARY */
+            800: "#10273f",
+            900: "#0b1b2c",
+            950: "#B8860B",  // bright gold
+          },
+        },
+      },
+    },
+  };
+</script>
+   
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/slideshow-animations.css" />
 
     <style>
-
-      html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+      html,
+      body {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
 
       /* ✨ Preloader pulse animation */
       @keyframes pulse-logo {
-        0%, 100% { transform: scale(1); }
-        50%      { transform: scale(1.1); }
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
       }
       .animate-pulse {
         animation: pulse-logo 1.2s ease-in-out infinite;
@@ -33,28 +69,28 @@
       }
 
       /* Scrollbar width */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
 
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f3f7f8; /* light background */
-  }
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f3f7f8; /* light background */
+      }
 
-  /* Thumb (scroll handle) */
-  ::-webkit-scrollbar-thumb {
-    background-color: #0f766e; /* same as text-teal-700 */
-    border-radius: 6px;
-    border: 2px solid #f3f7f8;
-  }
+      /* Thumb (scroll handle) */
+      ::-webkit-scrollbar-thumb {
+        background-color: #153151; /* same as text-brand-700 */
+        border-radius: 6px;
+        border: 2px solid #f3f7f8;
+      }
 
-  /* Hover effect */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #0d9488; /* tailwind teal-600 */
-    /* Add a subtle scale effect on hover */
-    transform: scale(1.1);
-  }
+      /* Hover effect */
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #153151; /* tailwind teal-600 */
+        /* Add a subtle scale effect on hover */
+        transform: scale(1.1);
+      }
 
       /* Modern Navbar effects */
       #navbar {
@@ -72,13 +108,13 @@
         position: relative;
       }
       .nav-link-underline::after {
-        content: '';
+        content: "";
         position: absolute;
         width: 0;
         height: 2px;
         bottom: -4px;
         left: 0;
-        background-color: #0d9488;
+        background-color: #153151;
         transition: width 0.3s ease;
       }
       .nav-link-underline:hover::after {
@@ -96,19 +132,19 @@
         position: relative;
         overflow: hidden;
       }
-      
+
       .mobile-menu-item::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0;
         bottom: 0;
         width: 3px;
-        background: #0d9488;
+        background: #153151;
         transform: scaleY(0);
         transition: transform 0.2s ease;
       }
-      
+
       .mobile-menu-item:hover::before {
         transform: scaleY(1);
       }
@@ -118,11 +154,13 @@
         opacity: 0;
         transform: translateY(-10px);
       }
-      
+
       .submenu-enter-active {
         opacity: 1;
         transform: translateY(0);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
       }
 
       /* Image optimization styles */
@@ -134,11 +172,8 @@
         opacity: 1;
       }
     </style>
-
-
   </head>
-  <body class="overflow-hidden bg-[#f3f7f8] text-gray-800">
-
+  <body class="overflow-hidden bg-[#dfe9f5] text-gray-800">
     <!-- 2) Preloader overlay -->
     <div
       id="preloader"
@@ -153,186 +188,308 @@
       />
     </div>
 
-
     <!-- Modern Navigation -->
-<nav
-  id="navbar"
-  class="bg-white/80 backdrop-blur-md border-b border-gray-100/50 px-6 py-2 fixed top-0 left-0 right-0 z-50 nav-visible transition-all duration-500"
->
-  <div class="flex items-center justify-between max-w-7xl mx-auto w-full relative">
-    <!-- Logo -->
-    <a href="index.html" class="text-3xl font-bold text-teal-700 mr-6 hover:text-teal-600 transition-colors duration-300">
-      Cogent
-    </a>
-    
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center space-x-8">
-      <a href="index.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
-        Home
-        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
-      </a>
-
-             <div class="relative group" onmouseenter="showAboutSubmenu()" onmouseleave="hideAboutSubmenu()">
-         <button class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 flex items-center space-x-1">
-           <span>About</span>
-           <svg id="desktop-submenu-icon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-           </svg>
-         </button>
-         <div id="desktop-about-submenu" class="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-gray-100/50 opacity-0 invisible transition-all duration-300 transform -translate-y-2">
-           <div class="py-2">
-             <a href="about.html" class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 transition-all duration-200 menu-item">About Cogent</a>
-             <a href="about.html#staff" class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 transition-all duration-200 menu-item">Meet Our Staff</a>
-             <a href="about.html#mission" class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 transition-all duration-200 menu-item">Mission & Vision</a>
-             <a href="careers.html" class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 transition-all duration-200 menu-item">Careers</a>
-           </div>
-         </div>
-       </div>
-
-      <a href="services.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
-        Services
-        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
-      </a>
-      
-      <a href="booking.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
-        Booking
-        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
-      </a>
-      
-      <a href="testimonials.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
-        Testimonials
-        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
-      </a>
-      
-      <a href="contact.html" class="text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 relative group menu-item">
-        Contact
-        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full"></span>
-      </a>
-    </div>
-
-    <!-- Mobile Menu Button -->
-    <button
-      id="menu-toggle"
-      class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-      onclick="toggleMenu()"
-      title="Toggle navigation menu"
-      aria-label="Toggle navigation menu"
-      aria-expanded="false"
+    <nav
+      id="navbar"
+      class="bg-[#dfe9f5] backdrop-blur-md border-b border-gray-100/50 px-6 py-2 fixed top-0 left-0 right-0 z-50 nav-visible transition-all duration-500"
     >
-      <svg
-        id="menu-icon"
-        class="w-6 h-6 text-gray-700"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
+      <div
+        class="flex items-center justify-between max-w-7xl mx-auto w-full relative"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M4 6h16M4 12h16M4 18h16"
-        />
-      </svg>
-    </button>
-  </div>
+        <!-- Logo -->
+       <a href="index.html" class="mr-6 group flex items-baseline gap-3">
+  <span class="font-['Playfair_Display'] text-3xl font-bold tracking-[0.15em] text-brand-900 group-hover:text-brand-700 transition-colors duration-300">
+    COGENT
+  </span>
+  <span class="font-['Inter'] text-lg tracking-[0.2em] text-brand-700 font-light group-hover:text-brand-500 transition-colors duration-300">
+    Legal Advisors
+  </span>
+</a>
 
-  <!-- Mobile Menu Backdrop -->
-  <div
-    id="menu-backdrop"
-    class="hidden fixed inset-0 bg-transparent z-40"
-    onclick="toggleMenu()"
-  ></div>
-  
-       <!-- Mobile Menu -->
-   <div
-     id="menu"
-     class="hidden fixed top-0 right-0 w-64 h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-500 ease-in-out"
-   >
-    <div class="flex flex-col h-full bg-white">
-      <!-- Mobile Menu Header -->
-      <div class="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50">
-        <div class="flex items-center space-x-1">
-          <span class="text-2xl font-bold text-teal-700">Menu</span>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            href="index.html"
+  class="text-brand-900 hover:text-brand-900 font-medium transition-all duration-300 relative group menu-item"
+>
+            Home
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-700 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+
+          <div
+            class="relative group"
+            onmouseenter="showAboutSubmenu()"
+            onmouseleave="hideAboutSubmenu()"
+          >
+            <button
+              class="text-brand-700 hover:text-brand-600 font-medium transition-all duration-300 flex items-center space-x-1"
+            >
+              <span>About</span>
+              <svg
+                id="desktop-submenu-icon"
+                class="w-4 h-4 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="desktop-about-submenu"
+              class="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-gray-100/50 opacity-0 invisible transition-all duration-300 transform -translate-y-2"
+            >
+              <div class="py-2">
+                <a
+                  href="about.html"
+                  class="block px-4 py-3 text-brand-700 hover:text-brand-600 hover:bg-brand-50/50 transition-all duration-200 menu-item"
+                  >About Cogent</a
+                >
+                <a
+                  href="about.html#staff"
+                  class="block px-4 py-3 text-brand-700 hover:text-brand-600 hover:bg-brand-50/50 transition-all duration-200 menu-item"
+                  >Meet Our Staff</a
+                >
+                <a
+                  href="about.html#mission"
+                  class="block px-4 py-3 text-brand-700 hover:text-brand-600 hover:bg-brand-50/50 transition-all duration-200 menu-item"
+                  >Mission & Vision</a
+                >
+                <a
+                  href="careers.html"
+                  class="block px-4 py-3 text-brand-700 hover:text-brand-600 hover:bg-brand-50/50 transition-all duration-200 menu-item"
+                  >Careers</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="services.html"
+            class="text-gray-700 hover:text-brand-600 font-medium transition-all duration-300 relative group menu-item"
+          >
+            Services
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-700 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+
+          <a
+            href="booking.html"
+            class="text-gray-700 hover:text-brand-600 font-medium transition-all duration-300 relative group menu-item"
+          >
+            Booking
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-700 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+
+          <a
+            href="testimonials.html"
+            class="text-gray-700 hover:text-brand-600 font-medium transition-all duration-300 relative group menu-item"
+          >
+            Testimonials
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-700 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+
+          <a
+            href="contact.html"
+            class="text-gray-700 hover:text-brand-600 font-medium transition-all duration-300 relative group menu-item"
+          >
+            Contact
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-700 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
         </div>
+
+        <!-- Mobile Menu Button -->
         <button
+          id="menu-toggle"
+          class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-brand-100 transition-colors duration-200"
           onclick="toggleMenu()"
-          class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
-          aria-label="Close menu"
+          title="Toggle navigation menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
         >
-          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            id="menu-icon"
+            class="w-6 h-6 text-brand-700"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
       </div>
 
-                    <!-- Mobile Menu Items -->
-        <div class="flex-1 px-4 py-4 space-y-1">
-          <a href="index.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
-            <span class="text-lg font-semibold">Home</span>
-          </a>
+      <!-- Mobile Menu Backdrop -->
+      <div
+        id="menu-backdrop"
+        class="hidden fixed inset-0 bg-transparent z-40"
+        onclick="toggleMenu()"
+      ></div>
 
-          <div class="space-y-1">
+      <!-- Mobile Menu -->
+      <div
+        id="menu"
+        class="hidden fixed top-0 right-0 w-64 h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-500 ease-in-out"
+      >
+        <div class="flex flex-col h-full bg-white">
+          <!-- Mobile Menu Header -->
+          <div
+            class="flex items-center justify-between p-6 border-b border-brand-700 bg-brand-50"
+          >
+            <div class="flex items-center space-x-1">
+              <span class="text-2xl font-bold text-brand-700">Menu</span>
+            </div>
             <button
-              onclick="toggleSubmenu()"
-              class="w-full flex items-center justify-between py-3 px-4 text-gray-900 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 mobile-menu-item shadow-sm"
-              aria-expanded="false"
-              aria-controls="about-submenu"
+              onclick="toggleMenu()"
+              class="p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+              aria-label="Close menu"
             >
-              <span class="text-lg font-semibold">About</span>
-              <svg id="submenu-icon" class="w-5 h-5 ml-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              <svg
+                class="w-6 h-6 text-brand-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
-            <div
-              id="about-submenu"
-              class="hidden space-y-1 ml-4"
-            >
-              <a href="about.html" class="block py-2 px-4 text-gray-700 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">About Cogent</a>
-              <a href="about.html#staff" class="block py-2 px-4 text-gray-700 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">Meet Our Staff</a>
-              <a href="about.html#mission" class="block py-2 px-4 text-gray-700 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">Mission & Vision</a>
-              <a href="careers.html" class="block py-2 px-4 text-gray-700 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">Careers</a>
-            </div>
           </div>
 
-          <a href="services.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
-            <span class="text-lg font-semibold">Services</span>
-          </a>
-          
-          <a href="booking.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
-            <span class="text-lg font-semibold">Booking</span>
-          </a>
-          
-          <a href="testimonials.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
-            <span class="text-lg font-semibold">Testimonials</span>
-          </a>
-          
-          <a href="contact.html" class="flex items-center py-3 px-4 text-gray-900 hover:text-teal-700 bg-white hover:bg-teal-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm">
-            <span class="text-lg font-semibold">Contact</span>
-          </a>
+          <!-- Mobile Menu Items -->
+          <div class="flex-1 px-4 py-4 space-y-1">
+            <a
+              href="index.html"
+              class="flex items-center py-3 px-4 text-brand-900 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm"
+            >
+              <span class="text-lg font-semibold">Home</span>
+            </a>
+
+            <div class="space-y-1">
+              <button
+                onclick="toggleSubmenu()"
+                class="w-full flex items-center justify-between py-3 px-4 text-gray-900 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 mobile-menu-item shadow-sm"
+                aria-expanded="false"
+                aria-controls="about-submenu"
+              >
+                <span class="text-lg font-semibold">About</span>
+                <svg
+                  id="submenu-icon"
+                  class="w-5 h-5 ml-2 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div id="about-submenu" class="hidden space-y-1 ml-4">
+                <a
+                  href="about.html"
+                  class="block py-2 px-4 text-brand-700 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm"
+                  >About Cogent</a
+                >
+                <a
+                  href="about.html#staff"
+                  class="block py-2 px-4 text-brand-700 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm"
+                  >Meet Our Staff</a
+                >
+                <a
+                  href="about.html#mission"
+                  class="block py-2 px-4 text-brand-700 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm"
+                  >Mission & Vision</a
+                >
+                <a
+                  href="careers.html"
+                  class="block py-2 px-4 text-brand-700 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm"
+                  >Careers</a
+                >
+              </div>
+            </div>
+
+            <a
+              href="services.html"
+              class="flex items-center py-3 px-4 text-brand-900 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm"
+            >
+              <span class="text-lg font-semibold">Services</span>
+            </a>
+
+            <a
+              href="booking.html"
+              class="flex items-center py-3 px-4 text-brand-900 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm"
+            >
+              <span class="text-lg font-semibold">Booking</span>
+            </a>
+
+            <a
+              href="testimonials.html"
+              class="flex items-center py-3 px-4 text-brand-900 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm"
+            >
+              <span class="text-lg font-semibold">Testimonials</span>
+            </a>
+
+            <a
+              href="contact.html"
+              class="flex items-center py-3 px-4 text-gray-900 hover:text-brand-700 bg-white hover:bg-brand-50/80 rounded-lg transition-all duration-200 menu-item mobile-menu-item shadow-sm"
+            >
+              <span class="text-lg font-semibold">Contact</span>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Footer -->
         </div>
-
-      <!-- Mobile Menu Footer -->
-     
-    </div>
-  </div>
-</nav>
-
+      </div>
+    </nav>
 
     <!-- Quote -->
-   <section
-  class="bg-teal-50 text-center pt-16 md:pt-12 pb-1 md:pb-2 px-4 shadow-sm"
-  data-aos="fade-up"
->
-  <p class="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl text-teal-900 italic font-semibold tracking-wide animate__animated animate__fadeInDown
-">
-    "Clear, logical, and convincing legal and educational services"
-  </p>
-</section>
+    <section
+      class="bg-brand-50 text-center pt-16 md:pt-14 lg:pt-18 pb-8 md:pb-8 lg:pb-3 px-4 shadow-sm"
+      data-aos="fade-up"
+    >
+      <p
+         class="text-xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl text-brand-950 italic font-semibold tracking-wide animate__animated animate__fadeInDown"
+  style="font-family: 'Cormorant Garamond', serif;"
+      >
+        Your legacy speaks for itself.
+      </p>
+    </section>
     <!-- 🖼 Slideshow Section -->
     <section class="relative w-full overflow-hidden" id="slideshow">
-      <div class="slideshow-wrapper relative h-0 pb-[177.77%] md:h-[900px] md:pb-0 max-w-full overflow-hidden">
+      <div
+        class="slideshow-wrapper relative h-0 pb-[177.77%] md:h-[900px] md:pb-0 max-w-full overflow-hidden"
+      >
         <!-- Slide 1 -->
-        <div class="slide absolute w-full h-full opacity-100 transition-opacity duration-2000 ease-in-out inset-0">
+        <div
+          class="slide absolute w-full h-full opacity-100 transition-opacity duration-2000 ease-in-out inset-0"
+        >
           <img
             src="images/learningimage.jpg"
             class="w-full h-full object-cover lazy-image"
@@ -342,22 +499,24 @@
           <div
             class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
           >
-                         <h2 class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]">
-               Empowering Minds with Cogent Learning
-             </h2>
+            <h2
+              class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]"
+            >
+              Empowering Minds with Cogent Learning
+            </h2>
 
-             <div
-               class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
-             >
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
+            >
               <a
                 href="#who"
-                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
               >
                 Who Are We?
               </a>
               <a
                 href="booking.html"
-                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
               >
                 Book a Session
               </a>
@@ -366,7 +525,9 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="slide absolute w-full h-full opacity-0 transition-opacity duration-2000 ease-in-out inset-0">
+        <div
+          class="slide absolute w-full h-full opacity-0 transition-opacity duration-2000 ease-in-out inset-0"
+        >
           <img
             src="images/slide2image.jpeg"
             class="w-full h-full object-cover lazy-image"
@@ -376,22 +537,24 @@
           <div
             class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
           >
-                         <h2 class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]">
-               Global Legal Insight, Local Expertise
-             </h2>
+            <h2
+              class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]"
+            >
+              Global Legal Insight, Local Expertise
+            </h2>
 
-             <div
-               class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
-             >
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
+            >
               <a
                 href="#who"
-                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
               >
                 Who Are We?
               </a>
               <a
                 href="booking.html"
-                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
               >
                 Book a Session
               </a>
@@ -400,7 +563,9 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="slide absolute w-full h-full opacity-0 transition-opacity duration-2000 ease-in-out inset-0">
+        <div
+          class="slide absolute w-full h-full opacity-0 transition-opacity duration-2000 ease-in-out inset-0"
+        >
           <img
             src="images/slide3image.jpg"
             class="w-full h-full object-cover lazy-image"
@@ -410,22 +575,24 @@
           <div
             class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
           >
-                         <h2 class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]">
-               Smart Consulting for a Better Tomorrow
-             </h2>
+            <h2
+              class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]"
+            >
+              Smart Consulting for a Better Tomorrow
+            </h2>
 
-             <div
-               class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
-             >
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
+            >
               <a
                 href="#who"
-                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
               >
                 Who Are We?
               </a>
               <a
                 href="booking.html"
-                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
               >
                 Book a Session
               </a>
@@ -434,7 +601,9 @@
         </div>
 
         <!-- Slide 4 -->
-        <div class="slide absolute w-full h-full opacity-0 transition-opacity duration-2000 ease-in-out inset-0">
+        <div
+          class="slide absolute w-full h-full opacity-0 transition-opacity duration-2000 ease-in-out inset-0"
+        >
           <img
             src="images/slide4image.jpg"
             class="w-full h-full object-cover lazy-image"
@@ -444,22 +613,24 @@
           <div
             class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
           >
-                         <h2 class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]">
-               Data-Driven Solutions for Economic Progress
-             </h2>
+            <h2
+              class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]"
+            >
+              Data-Driven Solutions for Economic Progress
+            </h2>
 
-             <div
-               class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
-             >
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
+            >
               <a
                 href="#who"
-                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
               >
                 Who Are We?
               </a>
               <a
                 href="booking.html"
-                class="px-6 py-3 text-lg font-semibold text-white bg-teal-600 rounded-full shadow-md transition hover:bg-teal-700 animate-pulse text-center"
+                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
               >
                 Book a Session
               </a>
@@ -470,230 +641,362 @@
     </section>
 
     <div class="mb-6 text-center">
-      <p class="text-teal-800 font-semibold italic">
+      <p class="text-brand-800 font-semibold italic">
         Se habla español. Fala português.
       </p>
     </div>
 
-    
     <!-- Intro Section -->
-<div id="who" class="bg-teal-50 text-center py-12 px-6 shadow-sm rounded-xl max-w-4xl mx-auto mb-16" data-aos="fade-up">
-  <div class="w-12 h-1 bg-teal-400 mx-auto mb-6 rounded"></div>
+    <div
+      id="who"
+      class="bg-brand-50 text-center py-12 px-6 shadow-sm rounded-xl max-w-4xl mx-auto mb-16"
+      data-aos="fade-up"
+    >
+      <div class="w-12 h-1 bg-brand-400 mx-auto mb-6 rounded"></div>
 
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-teal-900 mb-4 tracking-tight">
-    Who We Are
-  </h2>
-
-  <p class="text-teal-800 text-lg md:text-xl leading-relaxed font-serif">
-    At Cogent, we specialize in U.S. tax law, immigration, international development, and multilingual education. Our team proudly serves governments, NGOs, and individuals with integrity, strategic insight, and meaningful impact.
-  </p>
-
-  <!-- Button Group -->
-  <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-    <a href="about.html" class="inline-flex items-center gap-2 bg-teal-600 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-teal-700 transition">
-      Learn More
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-      </svg>
-    </a>
-
-    <a href="#divisions" class="inline-flex items-center gap-2 bg-white text-teal-700 border border-teal-600 text-lg font-medium px-6 py-2 rounded-full hover:bg-teal-100 transition">
-      Explore Divisions
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-      </svg>
-    </a>
-  </div>
-</div>
-
-<!-- Section Title for Divisions -->
-<div id="divisions" class="text-center max-w-3xl mx-auto mb-10 px-4" data-aos="fade-up">
-  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"> 
-    Explore Our Divisions
-  </h2>
-</div>
-
-<div class="grid gap-6 md:grid-cols-2 ">
-
-  <!-- Tile 2 -->
-  <a href="cogent_legal.html" class="group relative rounded-lg overflow-hidden shadow-lg"
-     data-aos="fade-up" data-aos-delay="0">
-    <img
-      src="images/legalimage.jpg"
-      alt="Cogent Legal"
-      class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-105 lazy-image"
-      loading="lazy"
-    />
-    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"></div>
-    <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10">
-      <h3 class="text-lg sm:text-xl font-bold mb-1">Cogent Legal</h3>
-      <p class="text-sm sm:text-base leading-snug">
-        Legal advisory on U.S. inbound/outbound tax law and international compliance.
-      </p>
-    </div>
-  </a>
-
-  <!-- Tile 1 -->
-  <a href="cogent_learning.html" class="group relative rounded-lg overflow-hidden shadow-lg"
-   data-aos="fade-up" data-aos-delay="100">
-    <img
-      src="images/learningimage.jpg"
-      alt="Cogent Learning"
-      class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-105 lazy-image"
-      loading="lazy"
-    />
-    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"></div>
-    <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10">
-      <h3 class="text-lg sm:text-xl font-bold mb-1">Cogent Learning</h3>
-      <p class="text-sm sm:text-base leading-snug">
-        Tutoring and education services tailored to individual student success.
-      </p>
-    </div>
-  </a>
-
-  <!-- Tile 3 -->
-  <a href="cogent_consulting.html" class="group relative rounded-lg overflow-hidden shadow-lg"
-   data-aos="fade-up" data-aos-delay="100">
-    <img
-      src="images/consultimage.jpg"
-      alt="Cogent Consulting"
-      class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-105 lazy-image"
-      loading="lazy"
-    />
-    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"></div>
-    <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10">
-      <h3 class="text-lg sm:text-xl font-bold mb-1">Cogent Consulting</h3>
-      <p class="text-sm sm:text-base leading-snug">
-        Strategic consulting for international development and economic policy.
-      </p>
-    </div>
-  </a>
-
-  <!-- Tile 4 -->
-  <a href="economic_policy.html" class="group relative rounded-lg overflow-hidden shadow-lg"
-   data-aos="fade-up" data-aos-delay="100">
-    <img
-      src="images/economicimage.jpg"
-      alt="Cogent Economic Policy"
-      class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-105 lazy-image"
-      loading="lazy"
-    />
-    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"></div>
-    <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10">
-      <h3 class="text-lg sm:text-xl font-bold mb-1">Cogent Economic Policy</h3>
-      <p class="text-sm sm:text-base leading-snug">
-        Data-driven economic analysis and policy recommendations.
-      </p>
-    </div>
-  </a>
-</div>
-
-<!-- Testimonials Section -->
-<section class="py-16 bg-gray-50" data-aos="fade-up">
-  <div class="max-w-4xl mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-      What Our Clients Say
-    </h2>
-    
-    <div class="grid gap-8 md:grid-cols-2">
-      <blockquote
-        class="bg-teal-50 p-6 rounded-lg shadow"
-        data-aos="fade-right"
-        data-aos-delay="200"
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-700 mb-4 tracking-tight"
       >
-        <p class="text-lg italic text-gray-800">
-          "The tax law advisory service was exceptional. They helped me navigate complex international tax regulations and saved me thousands in potential penalties. Highly professional and knowledgeable."
-        </p>
-        <footer class="mt-4 font-medium text-teal-700">— Amina, Ghana • Cogent Consulting Client</footer>
-      </blockquote>
+        Who We Are
+      </h2>
 
-      <blockquote
-        class="bg-teal-50 p-6 rounded-lg shadow"
-        data-aos="fade-left"
-        data-aos-delay="300"
-      >
-        <p class="text-lg italic text-gray-800">
-          "The Spanish instruction was fantastic! My daughter went from struggling to confident in just a few months. The personalized curriculum made all the difference."
-        </p>
-        <footer class="mt-4 font-medium text-teal-700">— Jason, UK • Cogent Learning Client</footer>
-      </blockquote>
+      <p class="text-brand-800 text-lg md:text-xl leading-relaxed font-serif">
+        At Cogent, we specialize in U.S. tax law, immigration, international
+        development, and multilingual education. Our team proudly serves
+        governments, NGOs, and individuals with integrity, strategic insight,
+        and meaningful impact.
+      </p>
+
+      <!-- Button Group -->
+      <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="about.html"
+          class="inline-flex items-center gap-2 bg-brand-700 text-white text-lg font-medium px-6 py-2 rounded-full hover:bg-brand-800 transition"
+        >
+          Learn More
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </a>
+
+        <a
+          href="#divisions"
+          class="inline-flex items-center gap-2 bg-white text-brand-700 border border-brand-600 text-lg font-medium px-6 py-2 rounded-full hover:bg-brand-100 transition"
+        >
+          Explore Divisions
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
 
+    <!-- Section Title for Divisions -->
+    <div
+      id="divisions"
+      class="text-center max-w-3xl mx-auto mb-10 px-4"
+      data-aos="fade-up"
+    >
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Explore Our Divisions
+      </h2>
+    </div>
 
-<section class="bg-teal-600 py-12" data-aos="fade-up">
-  <div class="max-w-3xl mx-auto text-center px-4 text-white">
-    <h2 class="text-3xl font-bold mb-4">Ready to Work with Cogent?</h2>
-    <p class="text-lg mb-8">
-      Whether you're a government agency, nonprofit, or individual, we're here to support your goals with integrity and strategy.
-    </p>
-    
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
+    <div class="grid gap-6 md:grid-cols-2">
+      <!-- Tile 2 -->
       <a
-        href="contact.html"
-        class="inline-block bg-white text-teal-700 text-lg font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
+        href="cogent_legal.html"
+        class="group relative rounded-lg overflow-hidden shadow-lg"
+        data-aos="fade-up"
+        data-aos-delay="0"
       >
-        Contact Us
+        <img
+          src="images/legalimage.jpg"
+          alt="Cogent Legal"
+          class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-105 lazy-image"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10"
+        >
+          <h3 class="text-lg sm:text-xl font-bold mb-1">Cogent Legal</h3>
+          <p class="text-sm sm:text-base leading-snug">
+            Legal advisory on U.S. inbound/outbound tax law and international
+            compliance.
+          </p>
+        </div>
       </a>
+
+      <!-- Tile 1 -->
       <a
-        href="booking.html" 
-        class="inline-block bg-white text-teal-700 text-lg font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
+        href="cogent_learning.html"
+        class="group relative rounded-lg overflow-hidden shadow-lg"
+        data-aos="fade-up"
+        data-aos-delay="100"
       >
-        Book a Session
+        <img
+          src="images/learningimage.jpg"
+          alt="Cogent Learning"
+          class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-105 lazy-image"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10"
+        >
+          <h3 class="text-lg sm:text-xl font-bold mb-1">Cogent Learning</h3>
+          <p class="text-sm sm:text-base leading-snug">
+            Tutoring and education services tailored to individual student
+            success.
+          </p>
+        </div>
+      </a>
+
+      <!-- Tile 3 -->
+      <a
+        href="cogent_consulting.html"
+        class="group relative rounded-lg overflow-hidden shadow-lg"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <img
+          src="images/consultimage.jpg"
+          alt="Cogent Consulting"
+          class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-105 lazy-image"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10"
+        >
+          <h3 class="text-lg sm:text-xl font-bold mb-1">Cogent Consulting</h3>
+          <p class="text-sm sm:text-base leading-snug">
+            Strategic consulting for international development and economic
+            policy.
+          </p>
+        </div>
+      </a>
+
+      <!-- Tile 4 -->
+      <a
+        href="economic_policy.html"
+        class="group relative rounded-lg overflow-hidden shadow-lg"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <img
+          src="images/economicimage.jpg"
+          alt="Cogent Economic Policy"
+          class="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-105 lazy-image"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white z-10"
+        >
+          <h3 class="text-lg sm:text-xl font-bold mb-1">
+            Cogent Economic Policy
+          </h3>
+          <p class="text-sm sm:text-base leading-snug">
+            Data-driven economic analysis and policy recommendations.
+          </p>
+        </div>
       </a>
     </div>
-  </div>
-</section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50" data-aos="fade-up">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12"
+        >
+          What Our Clients Say
+        </h2>
+
+        <div class="grid gap-8 md:grid-cols-2">
+          <blockquote
+            class="bg-brand-50 p-6 rounded-lg shadow"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <p class="text-lg italic text-gray-800">
+              "The tax law advisory service was exceptional. They helped me
+              navigate complex international tax regulations and saved me
+              thousands in potential penalties. Highly professional and
+              knowledgeable."
+            </p>
+            <footer class="mt-4 font-medium text-brand-700">
+              — Amina, Ghana • Cogent Consulting Client
+            </footer>
+          </blockquote>
+
+          <blockquote
+            class="bg-brand-50 p-6 rounded-lg shadow"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
+            <p class="text-lg italic text-gray-800">
+              "The Spanish instruction was fantastic! My daughter went from
+              struggling to confident in just a few months. The personalized
+              curriculum made all the difference."
+            </p>
+            <footer class="mt-4 font-medium text-brand-700">
+              — Jason, UK • Cogent Learning Client
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#153151] py-12" data-aos="fade-up">
+      <div class="max-w-3xl mx-auto text-center px-4 text-white">
+        <h2 class="text-3xl font-bold mb-4">Ready to Work with Cogent?</h2>
+        <p class="text-lg mb-8">
+          Whether you're a government agency, nonprofit, or individual, we're
+          here to support your goals with integrity and strategy.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="contact.html"
+            class="inline-block bg-[#153151] text-brand-700 text-lg font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
+          >
+            Contact Us
+          </a>
+          <a
+            href="booking.html"
+            class="inline-block bg-white text-brand-700 text-lg font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
+          >
+            Book a Session
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
-<!-- Footer -->
-<footer class="bg-gray-100 py-6 mt-16 border-t">
-  <div class="max-w-6xl mx-auto px-4 flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between">
-    
-    <!-- 1. Copyright -->
-    <div class="text-center md:text-left">
-      <p class="text-sm text-gray-600">© 2025 Cogent. All rights reserved.</p>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-6 mt-16 border-t">
+      <div
+        class="max-w-6xl mx-auto px-4 flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between"
+      >
+        <!-- 1. Copyright -->
+        <div class="text-center md:text-left">
+          <p class="text-sm text-gray-600">
+            © 2025 Cogent. All rights reserved.
+          </p>
+        </div>
 
-    <!-- 2. Legal Links -->
-    <div class="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-4 text-sm text-gray-600">
-      <a href="privacy.html" class="hover:text-teal-600 transition">Privacy Policy</a>
-      <a href="terms.html" class="hover:text-teal-600 transition">Terms & Conditions</a>
-      <a href="disclaimer.html" class="hover:text-teal-600 transition">Disclaimer</a>
-    </div>
+        <!-- 2. Legal Links -->
+        <div
+          class="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-4 text-sm text-gray-600"
+        >
+          <a href="privacy.html" class="hover:text-brand-600 transition"
+            >Privacy Policy</a
+          >
+          <a href="terms.html" class="hover:text-brand-600 transition"
+            >Terms & Conditions</a
+          >
+          <a href="disclaimer.html" class="hover:text-brand-600 transition"
+            >Disclaimer</a
+          >
+        </div>
 
-    <!-- 3. Social Media Icons -->
-    <div class="flex space-x-4 items-center justify-center mt-4">
-  <!-- LinkedIn -->
-  <a href="https://linkedin.com" target="_blank" rel="noopener" title="LinkedIn" class="text-gray-600 hover:text-teal-600 transition">
-    <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.5v2.2h.05c.49-.93 1.69-2.2 3.45-2.2 3.69 0 4.5 2.43 4.5 5.6V24h-4v-7.2c0-1.72-.03-3.93-2.4-3.93-2.41 0-2.78 1.86-2.78 3.8V24h-4V8z"/>
-    </svg>
-  </a>
+        <!-- 3. Social Media Icons -->
+        <div class="flex space-x-4 items-center justify-center mt-4">
+          <!-- LinkedIn -->
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener"
+            title="LinkedIn"
+            class="text-gray-600 hover:text-brand-600 transition"
+          >
+            <svg
+              class="w-5 h-5 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.5v2.2h.05c.49-.93 1.69-2.2 3.45-2.2 3.69 0 4.5 2.43 4.5 5.6V24h-4v-7.2c0-1.72-.03-3.93-2.4-3.93-2.41 0-2.78 1.86-2.78 3.8V24h-4V8z"
+              />
+            </svg>
+          </a>
 
-  <!-- Facebook -->
-  <a href="https://facebook.com" target="_blank" rel="noopener" title="Facebook" class="text-gray-600 hover:text-teal-600 transition">
-    <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5v-2.3C10.5 7 11.9 6 13.5 6h2.5v3h-2c-.5 0-1 .4-1 1V12H16l-.5 3h-2v7A10 10 0 0022 12z"/>
-    </svg>
-  </a>
+          <!-- Facebook -->
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener"
+            title="Facebook"
+            class="text-gray-600 hover:text-brand-600 transition"
+          >
+            <svg
+              class="w-5 h-5 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5v-2.3C10.5 7 11.9 6 13.5 6h2.5v3h-2c-.5 0-1 .4-1 1V12H16l-.5 3h-2v7A10 10 0 0022 12z"
+              />
+            </svg>
+          </a>
 
-  <!-- Twitter (X) -->
-  <a href="https://twitter.com" target="_blank" rel="noopener" title="Twitter/X" class="text-gray-600 hover:text-teal-600 transition">
-    <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M21.5 2h-3l-5.5 7.2L8 2H2l7.7 10.6L2 22h3l6-7.9L16 22h6l-8-11L21.5 2z"/>
-    </svg>
-  </a>
-</div>
-
-
-  </div>
-</footer>
+          <!-- Twitter (X) -->
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener"
+            title="Twitter/X"
+            class="text-gray-600 hover:text-brand-600 transition"
+          >
+            <svg
+              class="w-5 h-5 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M21.5 2h-3l-5.5 7.2L8 2H2l7.7 10.6L2 22h3l6-7.9L16 22h6l-8-11L21.5 2z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="main.js"></script>
-    <script>AOS.init();</script>
-</body>
+    <script>
+      AOS.init();
+    </script>
+  </body>
 </html>

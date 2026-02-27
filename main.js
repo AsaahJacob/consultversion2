@@ -53,7 +53,7 @@ document.querySelectorAll("#navbar .md\\:flex a[href]").forEach(link => {
 
   // 5. Match & highlight
   if (linkKey === pageKey) {
-    link.classList.add("text-teal-700", "font-bold");
+    link.classList.add("text-brand-900", "font-bold");
   }
 });
 
