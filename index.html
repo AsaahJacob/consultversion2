@@ -72,6 +72,16 @@
       ::-webkit-scrollbar {
         width: 10px;
       }
+      
+        /* Hide horizontal scrollbar for staff track */
+          .no-scrollbar::-webkit-scrollbar { display: none; }
+          .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Staff carousel arrow sizing */
+        .staff-arrow { width: 44px; height: 44px; }
+        @media (max-width: 767px) {
+          .staff-arrow { width: 36px; height: 36px; }
+        }
 
       /* Track */
       ::-webkit-scrollbar-track {
@@ -171,6 +181,85 @@
       .lazy-image.loaded {
         opacity: 1;
       }
+
+      /* Slightly larger body copy (paragraphs) without affecting headings */
+      p {
+        font-size: 1.0625rem; /* ~17px */
+        line-height: 1.6;
+      }
+
+      /* Hero panel over slideshow (left-side card) — semi-transparent so image shows through */
+      .hero-panel {
+        position: absolute;
+        left: 3.5%;
+        top: 8%;
+        bottom: auto;
+        width: clamp(280px, 46%, 820px);
+        max-width: 820px;
+        background: transparent;
+        color: #f3f7f8;
+        padding: 36px 40px;
+        border-radius: 0 88px 88px 0;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(3, 10, 18, 0.18);
+      }
+
+      /* Create a blurred panel background without blurring the slide image */
+      .hero-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(11, 27, 44, 0.82);
+        filter: blur(18px);
+        -webkit-filter: blur(18px);
+        z-index: 1;
+        transform: translateZ(0);
+      }
+
+      /* Keep the content above the blurred pseudo-element */
+      .hero-panel > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 2.25rem;
+        line-height: 1.03;
+        font-weight: 600;
+        margin: 0 0 18px 0;
+        color: #f5f7f8;
+      }
+
+      @media(min-width: 768px) {
+        .hero-title { font-size: 3.25rem; }
+      }
+
+      .hero-desc {
+        color: #d8e6ea;
+        font-size: 1.02rem;
+        line-height: 1.6;
+        margin-bottom: 22px;
+        max-width: 46rem;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        background: #ffd66a;
+        color: #153151;
+        padding: 12px 18px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 6px 18px rgba(20,31,50,0.12);
+      }
+
+      /* Ensure hero stays readable on very small screens */
+      @media(max-width:640px){
+        .hero-panel{ left:6%; right:6%; width:auto; top:6%; bottom:auto; border-radius:12px; padding:20px; }
+        .hero-title{ font-size:1.5rem; }
+        .hero-desc{ font-size:0.98rem; }
+      }
     </style>
   </head>
   <body class="overflow-hidden bg-[#dfe9f5] text-gray-800">
@@ -191,7 +280,7 @@
     <!-- Modern Navigation -->
     <nav
       id="navbar"
-      class="bg-[#dfe9f5] backdrop-blur-md border-b border-gray-100/50 px-6 py-2 fixed top-0 left-0 right-0 z-50 nav-visible transition-all duration-500"
+      class="bg-[#fafbfc] backdrop-blur-md border-b border-gray-100/50 px-6 py-2 fixed top-0 left-0 right-0 z-50 nav-visible transition-all duration-500"
     >
       <div
         class="flex items-center justify-between max-w-7xl mx-auto w-full relative"
@@ -471,7 +560,7 @@
 
     <!-- Quote -->
     <section
-      class="bg-brand-50 text-center pt-16 md:pt-14 lg:pt-18 pb-8 md:pb-5 lg:pb-3 px-4 shadow-sm"
+      class="bg-[#fafbfc] text-center pt-16 md:pt-14 lg:pt-18 pb-8 md:pb-5 lg:pb-3 px-4 shadow-sm"
       data-aos="fade-up"
     >
       <p
@@ -496,32 +585,12 @@
             alt="Slide 1"
             loading="lazy"
           />
-          <div
-            class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
-          >
-            <h2
-              class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]"
-            >
-              Empowering Minds with Cogent Learning
-            </h2>
+          <div class="hero-panel">
+              <h1 class="hero-title">Legal Solutions for a Secure Future</h1>
+              <p class="hero-desc">Cogent Legal Advisor is a trusted legal advisory firm providing professional services in tax advisory, estate planning, trust structuring, and wealth management. We work closely with individuals, families, and businesses to develop clear and effective legal strategies. Our approach focuses on protecting assets, managing wealth responsibly, and planning for the future. With a commitment to professionalism and integrity, we help clients navigate complex financial and legal matters with confidence. Our goal is to safeguard your wealth and preserve your legacy for generations to come.</p>
 
-            <div
-              class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
-            >
-              <a
-                href="#who"
-                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
-              >
-                Who Are We?
-              </a>
-              <a
-                href="booking.html"
-                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
-              >
-                Book a Session
-              </a>
+              <a href="contact.html" class="hero-cta">Contact Us Today</a>
             </div>
-          </div>
         </div>
 
         <!-- Slide 2 -->
@@ -534,31 +603,11 @@
             alt="Slide 2"
             loading="lazy"
           />
-          <div
-            class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
-          >
-            <h2
-              class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]"
-            >
-              Global Legal Insight, Local Expertise
-            </h2>
+          <div class="hero-panel">
+            <h1 class="hero-title">Legal Solutions for a Secure Future</h1>
+            <p class="hero-desc">Cogent Legal Advisor is a trusted legal advisory firm providing professional services in tax advisory, estate planning, trust structuring, and wealth management. We work closely with individuals, families, and businesses to develop clear and effective legal strategies. Our approach focuses on protecting assets, managing wealth responsibly, and planning for the future. With a commitment to professionalism and integrity, we help clients navigate complex financial and legal matters with confidence. Our goal is to safeguard your wealth and preserve your legacy for generations to come.</p>
 
-            <div
-              class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
-            >
-              <a
-                href="#who"
-                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
-              >
-                Who Are We?
-              </a>
-              <a
-                href="booking.html"
-                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
-              >
-                Book a Session
-              </a>
-            </div>
+            <a href="contact.html" class="hero-cta">Contact Us Today</a>
           </div>
         </div>
 
@@ -572,31 +621,11 @@
             alt="Slide 3"
             loading="lazy"
           />
-          <div
-            class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
-          >
-            <h2
-              class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]"
-            >
-              Smart Consulting for a Better Tomorrow
-            </h2>
+          <div class="hero-panel">
+            <h1 class="hero-title">Legal Solutions for a Secure Future</h1>
+            <p class="hero-desc">Cogent Legal Advisor is a trusted legal advisory firm providing professional services in tax advisory, estate planning, trust structuring, and wealth management. We work closely with individuals, families, and businesses to develop clear and effective legal strategies. Our approach focuses on protecting assets, managing wealth responsibly, and planning for the future. With a commitment to professionalism and integrity, we help clients navigate complex financial and legal matters with confidence. Our goal is to safeguard your wealth and preserve your legacy for generations to come.</p>
 
-            <div
-              class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
-            >
-              <a
-                href="#who"
-                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
-              >
-                Who Are We?
-              </a>
-              <a
-                href="booking.html"
-                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
-              >
-                Book a Session
-              </a>
-            </div>
+            <a href="contact.html" class="hero-cta">Contact Us Today</a>
           </div>
         </div>
 
@@ -610,41 +639,80 @@
             alt="Slide 4"
             loading="lazy"
           />
-          <div
-            class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center"
-          >
-            <h2
-              class="text-white text-2xl md:text-4xl font-bold mb-6 text-center -mt-4 md:-mt-24 min-h-[3.5rem] md:min-h-[4.5rem]"
-            >
-              Data-Driven Solutions for Economic Progress
-            </h2>
+          <div class="hero-panel">
+            <h1 class="hero-title">Legal Solutions for a Secure Future</h1>
+            <p class="hero-desc">Cogent Legal Advisor is a trusted legal advisory firm providing professional services in tax advisory, estate planning, trust structuring, and wealth management. We work closely with individuals, families, and businesses to develop clear and effective legal strategies. Our approach focuses on protecting assets, managing wealth responsibly, and planning for the future. With a commitment to professionalism and integrity, we help clients navigate complex financial and legal matters with confidence. Our goal is to safeguard your wealth and preserve your legacy for generations to come.</p>
 
-            <div
-              class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 md:-mt-4"
-            >
-              <a
-                href="#who"
-                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
-              >
-                Who Are We?
-              </a>
-              <a
-                href="booking.html"
-                class="px-6 py-3 text-lg font-semibold text-white bg-brand-700 rounded-full shadow-md transition hover:bg-brand-800 animate-pulse text-center"
-              >
-                Book a Session
-              </a>
-            </div>
+            <a href="contact.html" class="hero-cta">Contact Us Today</a>
           </div>
         </div>
       </div>
     </section>
-
+<div class="mb-6 text-center"> 
+        <p class="text-brand-800 font-semibold italic">
+        Se habla español. Fala português.</p>   
+    </div>
     <div class="mb-6 text-center">
+      <!-- Meet Our Staff (carousel) -->
+      <section id="staff" class="max-w-6xl mx-auto px-4 mb-12" data-aos="fade-up">
+        <div class="text-center mb-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Meet Our Staff</h2>
+          <p class="text-gray-700 mt-2">Learn about the professionals who support our clients.</p>
+        </div>
+
+        <div class="relative">
+          <button id="staff-prev" aria-label="Previous staff" class="flex items-center justify-center staff-arrow bg-white rounded-full shadow absolute left-0 top-1/2 -translate-y-1/2 z-20 hover:bg-brand-50 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+
+          <div id="staff-track" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth py-4 px-6">
+            <!-- Staff cards will be injected here by JavaScript. Add or edit `staffData` in `main.js`. -->
+          </div>
+
+          <button id="staff-next" aria-label="Next staff" class="flex items-center justify-center staff-arrow bg-white rounded-full shadow absolute right-0 top-1/2 -translate-y-1/2 z-20 hover:bg-brand-50 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </section>
+
       <p class="text-brand-800 font-semibold italic">
         Se habla español. Fala português.
       </p>
     </div>
+
+    <!-- How Can We Help? (Practice Areas Grid inspired by clgllc.com) -->
+    <section id="how" class="max-w-6xl mx-auto px-4 mb-12" data-aos="fade-up">
+      <div class="text-center mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">How Can We Help?</h2>
+        <p class="text-gray-700 mt-2">Quick links to our main services — get started in one click.</p>
+      </div>
+
+      <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <a href="cogent_legal.html" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition flex flex-col items-start gap-3">
+          <div class="w-12 h-12 rounded-full bg-brand-700 text-white flex items-center justify-center text-xl">⚖️</div>
+          <h3 class="text-lg font-semibold text-brand-900">Legal Advisory</h3>
+          <p class="text-sm text-gray-600">U.S. tax law, estate planning, and international compliance.</p>
+        </a>
+
+        <a href="cogent_learning.html" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition flex flex-col items-start gap-3">
+          <div class="w-12 h-12 rounded-full bg-brand-700 text-white flex items-center justify-center text-xl">📘</div>
+          <h3 class="text-lg font-semibold text-brand-900">Learning & Tutoring</h3>
+          <p class="text-sm text-gray-600">Tailored instruction for students and professionals.</p>
+        </a>
+
+        <a href="cogent_consulting.html" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition flex flex-col items-start gap-3">
+          <div class="w-12 h-12 rounded-full bg-brand-700 text-white flex items-center justify-center text-xl">💼</div>
+          <h3 class="text-lg font-semibold text-brand-900">Consulting</h3>
+          <p class="text-sm text-gray-600">International development, policy, and project strategy.</p>
+        </a>
+
+        <a href="economic_policy.html" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition flex flex-col items-start gap-3">
+          <div class="w-12 h-12 rounded-full bg-brand-700 text-white flex items-center justify-center text-xl">📈</div>
+          <h3 class="text-lg font-semibold text-brand-900">Economic Policy</h3>
+          <p class="text-sm text-gray-600">Data-driven analysis and policy recommendations.</p>
+        </a>
+      </div>
+    </section>
 
     <!-- Intro Section -->
     <div
@@ -878,26 +946,40 @@
     </section>
 
     <section class="bg-[#153151] py-12" data-aos="fade-up">
-      <div class="max-w-3xl mx-auto text-center px-4 text-white">
-        <h2 class="text-3xl font-bold mb-4">Ready to Work with Cogent?</h2>
-        <p class="text-lg mb-8">
-          Whether you're a government agency, nonprofit, or individual, we're
-          here to support your goals with integrity and strategy.
-        </p>
+      <div class="max-w-6xl mx-auto px-4 text-white">
+        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+          <div class="text-center md:text-left md:pr-8">
+            <h2 class="text-3xl font-bold mb-4">Ready to Work with Cogent?</h2>
+            <p class="text-lg mb-8">
+              Whether you're a government agency, nonprofit, or individual, we're
+              here to support your goals with integrity and strategy.
+            </p>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a
-            href="contact.html"
-            class="inline-block bg-[#153151] text-brand-700 text-lg font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
-          >
-            Contact Us
-          </a>
-          <a
-            href="booking.html"
-            class="inline-block bg-white text-brand-700 text-lg font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
-          >
-            Book a Session
-          </a>
+            <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+              <a
+                href="contact.html"
+                class="inline-block bg-white text-brand-700 text-lg font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
+              >
+                Contact Us
+              </a>
+              <a
+                href="booking.html"
+                class="inline-block bg-white text-brand-700 text-lg font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
+              >
+                Book a Session
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-6 md:mt-0 md:pl-8 md:border-l md:border-white/20">
+            <div class="bg-white text-gray-800 rounded-lg p-5 shadow flex flex-col items-start">
+              <p class="font-semibold text-brand-700">Location</p>
+              <p class="text-sm text-brand-700">3261 Old Washington Road, Suite 2020, Waldorf, MD 20602</p>
+              <p class="text-sm text-brand-700 mt-2">Mon–Fri: 9am–5pm</p>
+              <p class="text-sm mt-2"><a href="tel:+15551234567" class="text-brand-700 hover:underline">+1 (555) 123-4567</a></p>
+              <p class="text-sm mt-2"><a href="https://maps.app.goo.gl/d458cjCJp2fWtvFSA" class="text-brand-700 hover:underline">Get directions</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -910,14 +992,14 @@
       >
         <!-- 1. Copyright -->
         <div class="text-center md:text-left">
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-brand-700">
             © 2025 Cogent. All rights reserved.
           </p>
         </div>
 
         <!-- 2. Legal Links -->
         <div
-          class="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-4 text-sm text-gray-600"
+          class="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-4 text-sm text-brand-900"
         >
           <a href="privacy.html" class="hover:text-brand-600 transition"
             >Privacy Policy</a
@@ -957,7 +1039,7 @@
             target="_blank"
             rel="noopener"
             title="Facebook"
-            class="text-gray-600 hover:text-brand-600 transition"
+            class="text-brand-900 hover:text-brand-600 transition"
           >
             <svg
               class="w-5 h-5 fill-current"
@@ -976,7 +1058,7 @@
             target="_blank"
             rel="noopener"
             title="Twitter/X"
-            class="text-gray-600 hover:text-brand-600 transition"
+            class="text-brand-900 hover:text-brand-600 transition"
           >
             <svg
               class="w-5 h-5 fill-current"
@@ -997,6 +1079,57 @@
     <script src="main.js"></script>
     <script>
       AOS.init();
+    </script>
+
+    <!-- Sticky Call Bar (mobile) -->
+    <div id="sticky-callbar" class="fixed bottom-4 left-4 right-4 z-50 md:hidden">
+      <div class="bg-white border border-gray-200 rounded-xl shadow-lg flex items-center justify-between px-4 py-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brand-700 text-white flex items-center justify-center text-lg">📞</div>
+          <div>
+            <div class="text-sm text-gray-600">Call us or schedule</div>
+            <a href="tel:+15551234567" id="call-link" class="text-brand-700 font-semibold">+1 (555) 123-4567</a>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="booking.html" class="inline-flex items-center px-3 py-2 bg-brand-700 text-white rounded-full text-sm font-medium hover:bg-brand-800 transition">Book</a>
+          <button id="callbar-dismiss" aria-label="Dismiss" class="text-gray-400 hover:text-gray-600 ml-2">✕</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Remember dismiss state in localStorage
+      (function() {
+        const bar = document.getElementById('sticky-callbar');
+        const dismiss = document.getElementById('callbar-dismiss');
+        const CALLBAR_KEY = 'cogent_callbar_dismissed_v1';
+
+        if (!bar || !dismiss) return;
+
+        // Hide if previously dismissed
+        if (localStorage.getItem(CALLBAR_KEY) === '1') {
+          bar.classList.add('hidden');
+        }
+
+        dismiss.addEventListener('click', () => {
+          bar.classList.add('hidden');
+          try { localStorage.setItem(CALLBAR_KEY, '1'); } catch(e){}
+        });
+
+        // Optional: hide on scroll down, show on scroll up
+        let lastY = window.pageYOffset || 0;
+        window.addEventListener('scroll', () => {
+          const y = window.pageYOffset || 0;
+          if (y > lastY && y > 100) {
+            bar.classList.add('opacity-0', 'pointer-events-none');
+          } else {
+            bar.classList.remove('opacity-0', 'pointer-events-none');
+          }
+          lastY = y;
+        });
+      })();
     </script>
   </body>
 </html>

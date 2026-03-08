@@ -366,3 +366,67 @@ window.addEventListener('scroll', () => {
           modals.forEach(modal => modal.classList.add('hidden'));
         }
       });
+
+      // Staff carousel data and rendering
+      const staffData = [
+        { name: 'Jane Doe', position: 'Managing Partner', slug: 'jane-doe', img: 'assets/images/staff/jane-doe.svg' },
+        { name: 'John Smith', position: 'Senior Advisor', slug: 'john-smith', img: 'assets/images/staff/john-smith.svg' },
+        { name: 'A. Placeholder', position: 'Associate', slug: 'placeholder', img: 'assets/images/staff/placeholder.svg' },
+        { name: 'M. Example', position: 'Consultant', slug: 'm-example', img: 'assets/images/staff/m-example.svg' },
+        { name: 'Priya Patel', position: 'Tax Specialist', slug: 'priya-patel', img: 'assets/images/staff/priya-patel.svg' },
+        { name: 'Carlos Mendes', position: 'Immigration Counsel', slug: 'carlos-mendes', img: 'assets/images/staff/carlos-mendes.svg' },
+        { name: 'Fatima Al-Hassan', position: 'Policy Advisor', slug: 'fatima-alhassan', img: 'assets/images/staff/fatima-alhassan.svg' },
+        { name: 'Liu Wei', position: 'Research Associate', slug: 'liu-wei', img: 'assets/images/staff/liu-wei.svg' },
+        { name: 'Sofia Rossi', position: 'Client Relations', slug: 'sofia-rossi', img: 'assets/images/staff/sofia-rossi.svg' }
+      ];
+
+      function renderStaffCarousel() {
+        const track = document.getElementById('staff-track');
+        if (!track) return;
+        track.innerHTML = '';
+
+        staffData.forEach(member => {
+          const a = document.createElement('a');
+          a.href = `staffs/${member.slug}.html`;
+          a.className = 'min-w-[220px] sm:min-w-[240px] bg-white rounded-xl shadow p-4 flex-shrink-0 text-center hover:shadow-lg transition';
+          a.innerHTML = `
+            <img src="${member.img}" alt="${member.name}" loading="lazy" class="w-32 h-32 rounded-full mx-auto object-cover mb-3 lazy-image" />
+            <h3 class="text-lg font-semibold text-brand-900">${member.name}</h3>
+            <p class="text-sm text-gray-600">${member.position}</p>
+          `;
+          track.appendChild(a);
+        });
+
+        // Re-init lazy loading for injected images
+        initLazyLoading();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        renderStaffCarousel();
+
+        const track = document.getElementById('staff-track');
+        const prev = document.getElementById('staff-prev');
+        const next = document.getElementById('staff-next');
+        if (!track) return;
+
+        const scrollAmount = Math.round(track.clientWidth * 0.7) || 600;
+
+        prev && prev.addEventListener('click', () => {
+          track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+
+        next && next.addEventListener('click', () => {
+          track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        // keyboard accessibility
+        [prev, next].forEach(btn => {
+          if (!btn) return;
+          btn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              btn.click();
+            }
+          });
+        });
+      });
